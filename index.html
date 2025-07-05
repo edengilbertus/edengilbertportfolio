@@ -435,6 +435,17 @@
             border-radius: 3px;
         }
 
+        .skills-category {
+            margin-bottom: 2rem;
+        }
+
+        .skills-category h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
         .skills-list {
             display: flex;
             flex-wrap: wrap;
@@ -474,6 +485,37 @@
         .skill-item:hover::before {
             left: 100%;
             transition: 0.7s;
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            background-color: #fafafa;
+            padding: 5rem 0;
+        }
+
+        .roadmap-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .roadmap-intro h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .mermaid-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            min-height: 400px;
         }
 
         /* Work Section */
@@ -929,10 +971,20 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .mermaid-container {
+                padding: 1rem;
+                overflow-x: auto;
+            }
+
+            .mermaid {
+                min-height: 300px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -949,6 +1001,7 @@
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#roadmap">Journey</a></li>
                     <li><a href="#work">Work</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -961,7 +1014,7 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1>Eden Gilbert <span class="highlight">Kiseka</span></h1>
-            <p>I'm a multidisciplinary engineer and creative based in Kampala, Uganda. With expertise in electrical engineering, software development, UI/UX design, and creative projects, I bring a unique perspective to every challenge.</p>
+            <p>I'm a multidisciplinary engineer and creative based in Kampala, Uganda. Full-Stack Engineer • AI/ML Specialist • Mobile Developer with expertise in cross-platform development, machine learning, electrical engineering, and creative projects. I bring innovative solutions using cutting-edge technologies with a focus on Material Design 3 principles.</p>
             <a href="#work" class="btn">View My Work</a>
         </div>
         <img src="images/eden-gilbert.png" alt="Eden Gilbert" class="hero-image">
@@ -990,24 +1043,144 @@
                 </div>
                 <div class="about-text fade-in">
                     <h2>About Me</h2>
-                    <p>I'm a self-taught creative professional with over 5 years of experience in visual, audio, and written mediums. My background in electrical engineering and software development gives me a unique approach to problem-solving.</p>
-                    <p>Proficient in six languages (English, Hebrew, Luganda, Swahili, French, and Afrikaans), I deliver culturally resonant designs and creative solutions. I'm passionate about combining technology with creativity to build innovative products.</p>
+                    <p>I'm a versatile Full-Stack Engineer with 2+ years of experience spanning mobile development, AI/ML, database management, and electrical systems integration. My creative background in visual, audio, and written mediums gives me a unique approach to problem-solving and user experience design.</p>
+                    <p>Proficient in six languages (English, Hebrew, Luganda, Swahili, French, and Afrikaans), I deliver culturally resonant designs and technical solutions. I'm passionate about creating innovative solutions using cutting-edge technologies with a focus on Material Design 3 principles and accessibility-first development.</p>
                     <div class="skills">
-                        <h3>My Skills</h3>
-                        <div class="skills-list">
-                            <span class="skill-item">Electrical Engineering</span>
-                            <span class="skill-item">Software Development</span>
-                            <span class="skill-item">UI/UX Design</span>
-                            <span class="skill-item">Database Systems</span>
-                            <span class="skill-item">Photography</span>
-                            <span class="skill-item">Music Production</span>
-                            <span class="skill-item">Creative Writing</span>
-                            <span class="skill-item">Multilingual</span>
+                        <h3>Technical Skills</h3>
+                        
+                        <div class="skills-category">
+                            <h4>Mobile Development</h4>
+                            <div class="skills-list">
+                                <span class="skill-item">Flutter</span>
+                                <span class="skill-item">Kotlin</span>
+                                <span class="skill-item">Swift</span>
+                                <span class="skill-item">React Native</span>
+                                <span class="skill-item">Jetpack Compose</span>
+                                <span class="skill-item">Material You 3</span>
+                                <span class="skill-item">iOS Development</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>Programming Languages</h4>
+                            <div class="skills-list">
+                                <span class="skill-item">Python</span>
+                                <span class="skill-item">Java</span>
+                                <span class="skill-item">C++</span>
+                                <span class="skill-item">JavaScript</span>
+                                <span class="skill-item">TypeScript</span>
+                                <span class="skill-item">Dart</span>
+                                <span class="skill-item">Swift</span>
+                                <span class="skill-item">Kotlin</span>
+                                <span class="skill-item">SQL</span>
+                                <span class="skill-item">Bash</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>AI & Machine Learning</h4>
+                            <div class="skills-list">
+                                <span class="skill-item">TensorFlow</span>
+                                <span class="skill-item">scikit-learn</span>
+                                <span class="skill-item">PyTorch</span>
+                                <span class="skill-item">Pandas</span>
+                                <span class="skill-item">NumPy</span>
+                                <span class="skill-item">OpenCV</span>
+                                <span class="skill-item">NLP</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>Web Development</h4>
+                            <div class="skills-list">
+                                <span class="skill-item">HTML</span>
+                                <span class="skill-item">CSS</span>
+                                <span class="skill-item">React</span>
+                                <span class="skill-item">Node.js</span>
+                                <span class="skill-item">RESTful APIs</span>
+                                <span class="skill-item">Next.js</span>
+                                <span class="skill-item">Express.js</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>Database & Backend</h4>
+                            <div class="skills-list">
+                                <span class="skill-item">MySQL</span>
+                                <span class="skill-item">PostgreSQL</span>
+                                <span class="skill-item">SQLite</span>
+                                <span class="skill-item">MongoDB</span>
+                                <span class="skill-item">Supabase</span>
+                                <span class="skill-item">Firebase</span>
+                                <span class="skill-item">Redis</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>Creative & Other</h4>
+                            <div class="skills-list">
+                                <span class="skill-item">UI/UX Design</span>
+                                <span class="skill-item">Figma</span>
+                                <span class="skill-item">Photography</span>
+                                <span class="skill-item">Music Production</span>
+                                <span class="skill-item">Creative Writing</span>
+                                <span class="skill-item">Electrical Engineering</span>
+                                <span class="skill-item">IoT Integration</span>
+                                <span class="skill-item">Multilingual</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <div class="roadmap-intro fade-in">
+                <h2>My Journey</h2>
+                <p>A visual roadmap of my multidisciplinary path from education to innovation.</p>
+            </div>
+            <div class="roadmap-diagram fade-in">
+                <div class="mermaid-container">
+                    <div class="mermaid">
+graph TD
+    A["🎓 Education Foundation<br/>Physical Sciences & Computer Science"] --> B["⚡ Electrical Engineering<br/>Hardware & IoT Systems"]
+    A --> C["💻 Software Development<br/>Full-Stack & Mobile"]
+    
+    B --> D["🔧 Neriko Electronics<br/>Electrical Engineer<br/>2025-Present"]
+    C --> E["💡 CoinPay Internship<br/>UI/UX & Frontend<br/>Aug 2023"]
+    
+    E --> F["🎨 Creative Projects<br/>Blog, Music, Photography"]
+    C --> G["📱 Mobile Development<br/>Flutter, React Native"]
+    
+    G --> H["🤖 AI/ML Integration<br/>Forex Analysis & Prediction"]
+    D --> I["🌐 IoT Development<br/>Hardware + Software"]
+    
+    F --> J["🚀 Full-Stack Projects<br/>Restaurant Platforms"]
+    H --> K["📊 Trading & Analytics<br/>Independent Trader"]
+    
+    I --> L["🔮 Future Vision<br/>Cross-Platform Innovation"]
+    J --> L
+    K --> L
+    
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e8
+    style E fill:#fff8e1
+    style F fill:#fce4ec
+    style G fill:#e0f2f1
+    style H fill:#f1f8e9
+    style I fill:#fff3e0
+    style J fill:#e3f2fd
+    style K fill:#f9fbe7
+    style L fill:#ff6b6b,color:#fff
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1026,12 +1199,14 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="project-tag">Web Design</span>
-                            <span class="project-tag">HTML/CSS</span>
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Kotlin</span>
+                            <span class="project-tag">Swift</span>
                             <span class="project-tag">MySQL</span>
                         </div>
-                        <h3 class="project-title">Pizza Vesuvio Website</h3>
-                        <p class="project-description">Designed and developed a complete website for a South African restaurant with database integration.</p>
+                        <h3 class="project-title">Restaurant Mobile & Web Platform</h3>
+                        <p class="project-description">Complete cross-platform solution for Pizza Vesuvio Cape Town with Flutter mobile app, iOS companion app using Swift, and Android native features using Kotlin. Deployed on Ubuntu server.</p>
                         <a href="https://pizzavesuviocpt.co.za/" class="project-link" target="_blank">Visit Site <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1073,16 +1248,18 @@
                 </div>
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="https://i.imgur.com/jRGa325.jpeg" alt="Forex Data Analysis Tool">
+                        <img src="https://i.imgur.com/jRGa325.jpeg" alt="AI-Powered Forex Analysis Mobile App">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Kotlin</span>
                             <span class="project-tag">Python</span>
-                            <span class="project-tag">SQLite</span>
-                            <span class="project-tag">Data Visualization</span>
+                            <span class="project-tag">TensorFlow</span>
+                            <span class="project-tag">Supabase</span>
                         </div>
-                        <h3 class="project-title">Forex Data Analysis Tool</h3>
-                        <p class="project-description">Created a Python-based tool for visualizing forex market trends with database integration.</p>
+                        <h3 class="project-title">AI-Powered Forex Analysis Mobile App</h3>
+                        <p class="project-description">Cross-platform mobile application using Flutter and Jetpack Compose with machine learning models for market prediction and Material You 3 design system.</p>
                         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1133,16 +1310,17 @@
                 </div>
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="https://i.imgur.com/bOS9Pzb.jpeg" alt="IoT System Integration">
+                        <img src="https://i.imgur.com/bOS9Pzb.jpeg" alt="IoT Device Controller">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="project-tag">Electrical Engineering</span>
-                            <span class="project-tag">IoT</span>
-                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Kotlin</span>
+                            <span class="project-tag">Microchip Studio</span>
+                            <span class="project-tag">Arduino</span>
                         </div>
-                        <h3 class="project-title">IoT System Integration</h3>
-                        <p class="project-description">Integrated hardware and software for IoT devices with Linux-based systems at Neriko Electronics.</p>
+                        <h3 class="project-title">IoT Device Controller</h3>
+                        <p class="project-description">Mobile application for controlling IoT devices using Flutter and Android native code. Programmed microcontrollers with Bluetooth and Wi-Fi connectivity featuring Material You 3 UI animations.</p>
                         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1185,6 +1363,22 @@
                         <a href="https://vercel.com/edengilbertus-projects/v0-neriko-electronics-app/5cZ9d4sEGczxrGq7aCJcZT6Pv8WZ" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://i.imgur.com/NnvIG6m.jpeg" alt="Cross-Platform Expense Tracker">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Supabase</span>
+                            <span class="project-tag">Material You 3</span>
+                        </div>
+                        <h3 class="project-title">Cross-Platform Expense Tracker</h3>
+                        <p class="project-description">Mobile application available on both iOS and Android platforms with real-time data synchronization, machine learning for expense categorization, and modern Material You 3 design system.</p>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1203,7 +1397,16 @@
                         <div class="timeline-date">April 2025 - Present</div>
                         <h3 class="timeline-title">Electrical Engineer</h3>
                         <h4 class="timeline-subtitle">Neriko Electronics, Kampala</h4>
-                        <p class="timeline-description">Designing electrical systems for commercial projects and integrating hardware/software for IoT devices.</p>
+                        <p class="timeline-description">Designed and implemented electrical systems for commercial projects, ensuring safety compliance. Integrated hardware and software for IoT devices with Linux-based systems using Kotlin and Flutter. Set up PostgreSQL databases with Supabase integration and developed mobile monitoring applications with Material You 3 design, improving circuit reliability by 20%.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2023 - 2024</div>
+                        <h3 class="timeline-title">Creative Writing Blog</h3>
+                        <h4 class="timeline-subtitle">Katheryn Holeton, Remote</h4>
+                        <p class="timeline-description">Authored and published short stories, poems, and articles on a personal blog platform. Engaged with readers through comments and social media to build a community of followers. Developed content management system using React and Node.js with responsive design.</p>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
@@ -1221,7 +1424,7 @@
                         <div class="timeline-date">July 2023 - Present</div>
                         <h3 class="timeline-title">FX Trader</h3>
                         <h4 class="timeline-subtitle">Independent, Remote</h4>
-                        <p class="timeline-description">Analyzing market trends and executing trades in the forex market with custom-built analysis tools.</p>
+                        <p class="timeline-description">Analyzed market trends and executed trades using AI-powered prediction models. Developed trading strategies with machine learning algorithms and managed risk to maximize returns. Created comprehensive database systems using Supabase to track performance and built mobile trading dashboard with Flutter using Material You 3 design principles.</p>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
@@ -1230,7 +1433,16 @@
                         <div class="timeline-date">August 2023</div>
                         <h3 class="timeline-title">Front-End Developer Intern</h3>
                         <h4 class="timeline-subtitle">CoinPay, Costa Rica</h4>
-                        <p class="timeline-description">Designed logos, UI, and UX for fintech platforms, collaborating with implementation teams.</p>
+                        <p class="timeline-description">Worked on design of logos, UI, and UX using Material You 3 principles and design systems. Utilized Figma, Adobe Photoshop, and Adobe XD for creating expressive interfaces. Collaborated on database architecture for customer information management using Supabase and developed responsive mobile interfaces with Flutter and React Native.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Expected 2027</div>
+                        <h3 class="timeline-title">Associate Degree in Computer Science</h3>
+                        <h4 class="timeline-subtitle">University of the People</h4>
+                        <p class="timeline-description">Remote learning focused on software engineering, algorithms, and computer science fundamentals.</p>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
@@ -1334,6 +1546,16 @@
 
     <!-- JavaScript -->
     <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px'
+            }
+        });
+
         // Set current year in copyright
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
