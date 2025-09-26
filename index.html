@@ -302,6 +302,88 @@
             z-index: 0;
         }
 
+        /* Summary Section */
+        .summary {
+            background-color: #ffffff;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .summary-card {
+            background-color: var(--light-color);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 107, 107, 0.15);
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .summary-card:hover::before {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+
+        .summary-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-card p,
+        .summary-card ul {
+            position: relative;
+            z-index: 1;
+            color: rgba(18, 18, 18, 0.8);
+        }
+
+        .summary-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .summary-card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .summary-card ul li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
         /* About Section */
         .about {
             background-color: var(--dark-color);
@@ -485,6 +567,10 @@
         .skill-item:hover::before {
             left: 100%;
             transition: 0.7s;
+        }
+
+        .skills-category .skills-list.small-gap {
+            gap: 0.6rem;
         }
 
         /* Roadmap Section */
@@ -704,6 +790,32 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
+        .timeline-description ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .timeline-description ul li {
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .timeline-description ul li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .timeline-description p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
         /* Contact Section */
         .contact {
             background-color: var(--light-color);
@@ -775,6 +887,200 @@
         .contact-form textarea {
             min-height: 150px;
             resize: vertical;
+        }
+
+        /* Languages Section */
+        .languages {
+            background-color: #ffffff;
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .language-card {
+            background-color: var(--light-color);
+            border-radius: 16px;
+            padding: 1.8rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-card::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            right: -60px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: rgba(255, 142, 83, 0.18);
+            transition: var(--transition);
+        }
+
+        .language-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .language-card:hover::after {
+            transform: scale(1.2);
+        }
+
+        .language-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .language-card span {
+            color: rgba(18, 18, 18, 0.7);
+            font-weight: 500;
+        }
+
+        /* Certificates Section */
+        .certificates {
+            background-color: var(--light-color);
+        }
+
+        .certificates-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .certificates-list {
+            list-style: none;
+            margin: 3rem 0 0;
+            padding: 0;
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .certificates-list li {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .certificates-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .certificates-list li span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .certificates-list li div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .certificates-list li h4 {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+
+        .certificates-list li p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: rgba(18, 18, 18, 0.7);
+        }
+
+        /* Education Section */
+        .education {
+            background-color: #fafafa;
+        }
+
+        .education-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .education-intro h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .education-card::after {
+            content: '';
+            position: absolute;
+            top: -70px;
+            right: -70px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 107, 107, 0.15);
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .education-card:hover::after {
+            transform: scale(1.2);
+        }
+
+        .education-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .education-card h4 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: rgba(54, 69, 79, 0.8);
+        }
+
+        .education-card time {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .education-card p {
+            margin-bottom: 0;
+            color: rgba(18, 18, 18, 0.75);
         }
 
         /* Footer */
@@ -980,6 +1286,19 @@
             .mermaid {
                 min-height: 300px;
             }
+
+            .summary-card {
+                padding: 1.8rem;
+            }
+
+            .certificates-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .certificates-list li span {
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -1000,10 +1319,14 @@
                 </button>
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#summary">Summary</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#roadmap">Journey</a></li>
                     <li><a href="#work">Work</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#languages">Languages</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1020,6 +1343,56 @@
         <img src="images/eden-gilbert.png" alt="Eden Gilbert" class="hero-image">
     </section>
 
+    <!-- Summary Section -->
+    <section class="summary" id="summary">
+        <div class="container">
+            <div class="fade-in">
+                <h2>Professional Snapshot</h2>
+                <p>Versatile Data Scientist and Android Developer with 6+ years of experience across data science, mobile development, electrical engineering, and creative disciplines. I bridge analytical rigor with human-centered design to deliver data-driven products for fintech, telecommunications, IoT, and creative industries.</p>
+            </div>
+            <div class="summary-grid">
+                <div class="summary-card fade-in">
+                    <h3>Current Roles</h3>
+                    <ul>
+                        <li>Junior Data Scientist • Huawei (Kampala, Uganda)</li>
+                        <li>Junior Data Scientist • Hammer Uganda Limited</li>
+                        <li>Electrical Engineer • Neriko Electronics</li>
+                        <li>FX Trader • Independent (Remote)</li>
+                    </ul>
+                </div>
+                <div class="summary-card fade-in">
+                    <h3>Core Strengths</h3>
+                    <ul>
+                        <li>Machine learning and statistical modeling for network and market intelligence</li>
+                        <li>Cross-platform Android development in Kotlin, React Native, and Lynx.js</li>
+                        <li>IoT systems integration, embedded hardware, and PostgreSQL-based telemetry</li>
+                        <li>Data visualization, dashboards, and stakeholder storytelling</li>
+                    </ul>
+                </div>
+                <div class="summary-card fade-in">
+                    <h3>Industry Impact</h3>
+                    <ul>
+                        <li>Telecommunications performance optimization and customer analytics</li>
+                        <li>Fintech platform design and full-stack e-commerce experiences</li>
+                        <li>Trading automation, risk systems, and quantitative research</li>
+                        <li>Photography, music production, and UI/UX for global brands</li>
+                    </ul>
+                </div>
+                <div class="summary-card fade-in">
+                    <h3>At a Glance</h3>
+                    <ul>
+                        <li>Location: Kampala, Uganda</li>
+                        <li>Email: <a href="mailto:edengilbertus@proton.me">edengilbertus@proton.me</a></li>
+                        <li>Phone: <a href="tel:+256703055006">+256 703 055 006</a></li>
+                        <li>LinkedIn: <a href="https://linkedin.com/in/edengilbert" target="_blank" rel="noopener">linkedin.com/in/edengilbert</a></li>
+                        <li>GitHub: <a href="https://github.com/edengilbertus" target="_blank" rel="noopener">github.com/edengilbertus</a></li>
+                        <li>Portfolio: <a href="https://edengilbert.me" target="_blank" rel="noopener">edengilbert.me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Resume Section -->
     <section class="resume" id="resume">
         <div class="container">
@@ -1030,7 +1403,6 @@
                     <a href="Eden Gilbert Resume.pdf" class="btn" download>Download Resume</a>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -1043,7 +1415,7 @@
                 </div>
                 <div class="about-text fade-in">
                     <h2>About Me</h2>
-                    <p>I'm a Data Scientist and Android Developer with experience in electrical engineering, mobile development, data analysis, and database management. My multidisciplinary background gives me a unique approach to problem-solving and user experience design.</p>
+                    <p>Versatile Data Scientist and Android Developer with 6+ years of experience spanning data science, mobile development, electrical engineering, and creative design. Skilled in machine learning, Android development with Kotlin, modern web frameworks, and database management. Proficient in multiple languages, delivering innovative technical solutions across diverse industries from fintech to IoT systems.</p>
                     <p>Proficient in multiple languages (English, Hebrew, Luganda, Swahili, French, Afrikaans), I deliver culturally resonant designs and technical solutions. I'm passionate about creating innovative solutions using cutting-edge technologies with a focus on user-centered design.</p>
                     <div class="skills">
                         <h3>Technical Skills</h3>
@@ -1062,6 +1434,7 @@
                             <h4>Programming Languages</h4>
                             <div class="skills-list">
                                 <span class="skill-item">Python</span>
+                                <span class="skill-item">C++</span>
                                 <span class="skill-item">Kotlin</span>
                                 <span class="skill-item">JavaScript</span>
                                 <span class="skill-item">TypeScript</span>
@@ -1078,6 +1451,7 @@
                                 <span class="skill-item">Pandas</span>
                                 <span class="skill-item">NumPy</span>
                                 <span class="skill-item">scikit-learn</span>
+                                <span class="skill-item">Data Visualization</span>
                                 <span class="skill-item">Data Analysis</span>
                                 <span class="skill-item">Statistical Modeling</span>
                             </div>
@@ -1118,6 +1492,37 @@
                                 <span class="skill-item">IoT Integration</span>
                                 <span class="skill-item">Hardware/Software Integration</span>
                                 <span class="skill-item">Microcontroller Programming</span>
+                                <span class="skill-item">MATLAB</span>
+                                <span class="skill-item">PSpice</span>
+                                <span class="skill-item">Altium Designer</span>
+                                <span class="skill-item">AutoCAD Electrical</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h4>Software & Deployment Tools</h4>
+                            <div class="skills-list">
+                                <span class="skill-item">Arduino IDE</span>
+                                <span class="skill-item">VS Code</span>
+                                <span class="skill-item">IDX</span>
+                                <span class="skill-item">Heroku</span>
+                                <span class="skill-item">Git</span>
+                                <span class="skill-item">Android Studio</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h4>Photography</h4>
+                            <div class="skills-list small-gap">
+                                <span class="skill-item">Lightroom CC</span>
+                                <span class="skill-item">Capture One</span>
+                                <span class="skill-item">Portrait & Commercial Shoots</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h4>Music Production</h4>
+                            <div class="skills-list small-gap">
+                                <span class="skill-item">Ableton Live</span>
+                                <span class="skill-item">FL Studio</span>
+                                <span class="skill-item">Audio Engineering</span>
                             </div>
                         </div>
                     </div>
@@ -1395,7 +1800,14 @@ graph TD
                         <div class="timeline-date">2025 - Present</div>
                         <h3 class="timeline-title">Junior Data Scientist</h3>
                         <h4 class="timeline-subtitle">Hammer Uganda Limited & Huawei</h4>
-                        <p class="timeline-description">Working on data analysis and machine learning projects. Developing statistical models and performing data analysis to drive business insights. Utilizing Python, Pandas, and scikit-learn for data processing and modeling.</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Applied machine learning algorithms to analyze telecommunications data and customer behavior patterns.</li>
+                                <li>Developed predictive models using Python and statistical analysis for network optimization.</li>
+                                <li>Collaborated with cross-functional teams to implement data-driven solutions for business intelligence.</li>
+                                <li>Created data visualization dashboards and reports for stakeholder decision-making.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
@@ -1404,7 +1816,46 @@ graph TD
                         <div class="timeline-date">April 2025 - Present</div>
                         <h3 class="timeline-title">Electrical Engineer</h3>
                         <h4 class="timeline-subtitle">Neriko Electronics, Kampala</h4>
-                        <p class="timeline-description">Designed and implemented electrical systems for commercial projects, ensuring safety compliance. Integrated hardware and software for IoT devices with Linux-based systems using Kotlin and Flutter. Set up PostgreSQL databases with Supabase integration and developed mobile monitoring applications with Material You 3 design, improving circuit reliability by 20%.</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Designed and implemented electrical systems for commercial projects, ensuring safety compliance.</li>
+                                <li>Integrated hardware and software for IoT devices with Linux-based systems.</li>
+                                <li>Set up and maintained PostgreSQL databases for system monitoring and telemetry data.</li>
+                                <li>Conducted troubleshooting and maintenance, improving circuit reliability by 20%.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 2023 - Present</div>
+                        <h3 class="timeline-title">FX Trader</h3>
+                        <h4 class="timeline-subtitle">Independent, Remote</h4>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Analyzed market trends and executed forex trades using quantitative and statistical techniques.</li>
+                                <li>Developed algorithmic trading strategies and rigorous risk management systems.</li>
+                                <li>Created database systems to track trading performance, indicators, and portfolio metrics.</li>
+                                <li>Applied statistical analysis to optimize entry, exit, and position-sizing strategies.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - Present</div>
+                        <h3 class="timeline-title">Freelance Creative Professional</h3>
+                        <h4 class="timeline-subtitle">Self-Employed, Remote</h4>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Specialized in photography, graphic design, and music production for global clients.</li>
+                                <li>Delivered portraits, logos, marketing collateral, and audio compositions tailored to brand narratives.</li>
+                                <li>Applied UI/UX principles to web design projects for small businesses and startups.</li>
+                                <li>Developed mobile applications using React Native and Android native development.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
@@ -1413,7 +1864,14 @@ graph TD
                         <div class="timeline-date">2023 - 2024</div>
                         <h3 class="timeline-title">Android Developer</h3>
                         <h4 class="timeline-subtitle">Freelance Projects</h4>
-                        <p class="timeline-description">Developed mobile applications using Kotlin and React Native. Focused on creating user-friendly interfaces and implementing robust backend systems with SQLite and Supabase integration.</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Developed mobile applications using Kotlin and React Native for cross-platform delivery.</li>
+                                <li>Implemented responsive UI components and Material You 3 design systems.</li>
+                                <li>Integrated SQLite and Supabase backends to support real-time analytics.</li>
+                                <li>Optimized application performance through profiling and iterative testing.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
@@ -1422,7 +1880,14 @@ graph TD
                         <div class="timeline-date">2022 - Present</div>
                         <h3 class="timeline-title">UI/UX Designer</h3>
                         <h4 class="timeline-subtitle">Freelance Projects</h4>
-                        <p class="timeline-description">Designed user interfaces and experiences using Figma and Penpot. Focused on creating intuitive and visually appealing designs for mobile and web applications.</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Designed user interfaces and experiences using Figma and Penpot.</li>
+                                <li>Built design systems with accessibility guidelines for mobile and web.</li>
+                                <li>Collaborated with developers to translate prototypes into production-ready interfaces.</li>
+                                <li>Facilitated user testing sessions and iterated on feedback for usability improvements.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
@@ -1431,16 +1896,30 @@ graph TD
                         <div class="timeline-date">2023 - 2024</div>
                         <h3 class="timeline-title">Web Developer</h3>
                         <h4 class="timeline-subtitle">Freelance Projects</h4>
-                        <p class="timeline-description">Developed web applications using Vue.js and Angular. Implemented RESTful APIs and integrated with PostgreSQL and Supabase databases.</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Developed web applications using Vue.js and Angular.</li>
+                                <li>Implemented RESTful APIs and full-stack integrations with PostgreSQL and Supabase.</li>
+                                <li>Optimized performance and SEO for production deployments.</li>
+                                <li>Collaborated with designers to iterate on UI enhancements for conversion gains.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">August 2023</div>
-                        <h3 class="timeline-title">UI/UX Design Intern</h3>
+                        <h3 class="timeline-title">Front-End Developer Intern</h3>
                         <h4 class="timeline-subtitle">CoinPay, Costa Rica</h4>
-                        <p class="timeline-description">Worked on UI/UX design using Figma. Created wireframes and prototypes for mobile and web applications. Collaborated with developers to implement designs.</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Designed logos, user interfaces, and user experiences for fintech platforms.</li>
+                                <li>Collaborated on database architecture for customer information management.</li>
+                                <li>Utilized Figma and Adobe Photoshop as primary design and prototyping tools.</li>
+                                <li>Delivered handoff documentation to accelerate engineering implementation.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
@@ -1448,12 +1927,159 @@ graph TD
                     <div class="timeline-content">
                         <div class="timeline-date">Expected 2027</div>
                         <h3 class="timeline-title">Associate Degree in Computer Science</h3>
-                        <h4 class="timeline-subtitle">University of the People</h4>
-                        <p class="timeline-description">Pursuing an associate degree in computer science with a focus on data science, mobile development, and database systems.</p>
+                        <h4 class="timeline-subtitle">University of the People, USA</h4>
+                        <div class="timeline-description">
+                            <p>Pursuing foundations in algorithms, software engineering, and data science to support scalable application development.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Expected 2027</div>
+                        <h3 class="timeline-title">Diploma in Electrical Engineering</h3>
+                        <h4 class="timeline-subtitle">Uganda Institute of ICT, Uganda</h4>
+                        <div class="timeline-description">
+                            <p>Studying electrical engineering fundamentals, embedded systems, and IoT applications with hands-on circuit design labs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3 class="timeline-title">Certificate of Higher Education in Physical Sciences</h3>
+                        <h4 class="timeline-subtitle">Victoria University, Uganda</h4>
+                        <div class="timeline-description">
+                            <p>Completed certificate program in physics, chemistry, and mathematics to strengthen analytical problem-solving.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022</div>
+                        <h3 class="timeline-title">Secondary Education</h3>
+                        <h4 class="timeline-subtitle">Uganda Advanced Certificate of Education</h4>
+                        <div class="timeline-description">
+                            <p>Completed secondary education with emphasis on mathematics, physics, and computer science disciplines.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3 class="timeline-title">Certificate of Higher Education in Physical Sciences</h3>
+                        <h4 class="timeline-subtitle">Victoria University</h4>
+                        <p class="timeline-description">Completed certificate program in physical sciences covering physics, chemistry, and mathematics fundamentals.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022</div>
+                        <h3 class="timeline-title">Secondary Education</h3>
+                        <h4 class="timeline-subtitle">Uganda Advanced Certificate of Education</h4>
+                        <p class="timeline-description">Completed secondary education with focus on mathematics, physics, and computer science.</p>
                     </div>
                 </div>
                 
                 
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <div class="education-intro fade-in">
+                <h2>Education Highlights</h2>
+                <p>Academic milestones that reinforce my interdisciplinary practice across computer science, electrical engineering, and the physical sciences.</p>
+            </div>
+            <div class="education-grid">
+                <div class="education-card fade-in">
+                    <h3>University of the People</h3>
+                    <h4>Associate Degree in Computer Science</h4>
+                    <time>Expected 2027</time>
+                    <p>Concentrations in algorithms, data structures, software engineering, and applied data science to build scalable digital products.</p>
+                </div>
+                <div class="education-card fade-in">
+                    <h3>Uganda Institute of ICT</h3>
+                    <h4>Diploma in Electrical Engineering</h4>
+                    <time>Expected 2027</time>
+                    <p>Hands-on immersion in circuit design, power systems, embedded electronics, and IoT integration for smart infrastructure.</p>
+                </div>
+                <div class="education-card fade-in">
+                    <h3>Victoria University</h3>
+                    <h4>Certificate of Higher Education in Physical Sciences</h4>
+                    <time>2025</time>
+                    <p>Explored physics, chemistry, and mathematics fundamentals to strengthen analytical problem solving and research methodology.</p>
+                </div>
+                <div class="education-card fade-in">
+                    <h3>Uganda Advanced Certificate of Education</h3>
+                    <h4>Secondary Education</h4>
+                    <time>2022</time>
+                    <p>Completed advanced secondary curriculum with emphasis on mathematics, physics, and computer science studies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages" id="languages">
+        <div class="container">
+            <div class="fade-in">
+                <h2>Languages</h2>
+                <p>Multilingual communication skills that help me collaborate across teams, clients, and cultures.</p>
+            </div>
+            <div class="languages-grid">
+                <div class="language-card fade-in">
+                    <h3>English</h3>
+                    <span>Fluent</span>
+                </div>
+                <div class="language-card fade-in">
+                    <h3>Luganda</h3>
+                    <span>Fluent</span>
+                </div>
+                <div class="language-card fade-in">
+                    <h3>French</h3>
+                    <span>Intermediate (B2)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <div class="container">
+            <div class="fade-in certificates-wrapper">
+                <h2>Certificates & Honors</h2>
+                <ul class="certificates-list">
+                    <li class="fade-in">
+                        <span>2018</span>
+                        <div>
+                            <h4>Computer Science & IT Award</h4>
+                            <p>KHS Uganda – Recognized for outstanding innovation and leadership in computer science.</p>
+                        </div>
+                    </li>
+                    <li class="fade-in">
+                        <span>2018</span>
+                        <div>
+                            <h4>Uganda Certificate of Education</h4>
+                            <p>Completed national curriculum with distinction in mathematics and science subjects.</p>
+                        </div>
+                    </li>
+                    <li class="fade-in">
+                        <span>2022</span>
+                        <div>
+                            <h4>Uganda Advanced Certificate of Education</h4>
+                            <p>Advanced-level qualification with concentration in physics, mathematics, and ICT.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
