@@ -368,10 +368,13 @@
         font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;
       }
       .creative-card .creative-handle {
+        display: inline-block;
         font-size: 0.75rem; font-weight: 600;
         letter-spacing: 0.1em; text-transform: uppercase;
         color: var(--charcoal-40); margin-bottom: 0.75rem;
+        transition: color 0.3s;
       }
+      .creative-card .creative-handle:hover { color: var(--charcoal); }
       .creative-card p {
         font-size: 0.9rem; font-weight: 300;
         color: rgba(42,42,42,0.7); line-height: 1.6;
@@ -784,12 +787,12 @@
       <div class="creative-grid">
         <div class="creative-card gsap-hidden">
           <h3>Photography</h3>
-          <div class="creative-handle">@edens.creative</div>
+          <a href="https://instagram.com/edens.creative" target="_blank" class="creative-handle">@edens.creative →</a>
           <p>Product photography for commercial clients and portrait work capturing authentic moments. Complete projects from concept through post-processing—lighting, composition, and color grading to tell visual stories. This directly informs my approach to UI design: visual hierarchy, negative space, and emotional impact through imagery.</p>
         </div>
         <div class="creative-card gsap-hidden">
           <h3>Music Production</h3>
-          <div class="creative-handle">@edengilbert.dnb</div>
+          <a href="https://instagram.com/edengilbert.dnb" target="_blank" class="creative-handle">@edengilbert.dnb →</a>
           <p>Electronic music specializing in Drum &amp; Bass, from sound design through mixing and mastering. Music production teaches rhythm, pacing, and building emotional arcs—principles applied directly to interaction design, micro-animations, and user journey mapping.</p>
         </div>
         <div class="creative-card gsap-hidden">
