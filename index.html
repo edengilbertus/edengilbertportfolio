@@ -1,2230 +1,2514 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eden Gilbert Kiseka | Lead Data Scientist & Android Developer</title>
     <style>
-        /* Base Styles */
-        :root {
-            --primary-color: #36454F;
-            --accent-color: #FF6B6B;
-            --light-color: #F5F5F5;
-            --dark-color: #121212;
-            --accent-gradient: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+      /* Base Styles */
+      :root {
+        --primary-color: #36454f;
+        --accent-color: #ff6b6b;
+        --light-color: #f5f5f5;
+        --dark-color: #121212;
+        --accent-gradient: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+        --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
 
-        body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+      body {
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        line-height: 1.2;
+      }
 
+      h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.5rem;
+        width: 80px;
+        height: 4px;
+        background-color: var(--accent-color);
+      }
+
+      h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      .highlight {
+        color: var(--accent-color);
+      }
+
+      /* Layout */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      section {
+        padding: 6rem 0;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 0;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        transition: var(--transition);
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      header.scrolled {
+        padding: 0.8rem 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        position: relative;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+        transition: var(--transition);
+      }
+
+      .logo::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--accent-gradient);
+        transform: scaleX(0.7);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover::after {
+        transform: scaleX(1);
+      }
+
+      .logo span {
+        color: var(--accent-color);
+        position: relative;
+      }
+
+      .logo span::before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        top: 5px;
+        right: -8px;
+        opacity: 0.7;
+      }
+
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      .nav-toggle:hover {
+        color: var(--accent-color);
+        transform: rotate(90deg);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 2.5rem;
+      }
+
+      nav ul li a {
+        font-weight: 500;
+        position: relative;
+        padding: 0.5rem 0;
+        transition: var(--transition);
+        letter-spacing: 0.02em;
+      }
+
+      nav ul li a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--accent-color);
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out;
+      }
+
+      nav ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      nav ul li a:hover::before,
+      nav ul li a.active::before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+
+      nav ul li a.active {
+        color: var(--accent-color);
+        font-weight: 600;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--light-color);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: var(--accent-gradient);
+        color: white;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ff8e53 0%, #ff6b6b 100%);
+        z-index: -1;
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .btn:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 15px 25px rgba(255, 107, 107, 0.4);
+        color: white;
+      }
+
+      .btn:hover::before {
+        opacity: 1;
+      }
+
+      .btn:active {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(255, 107, 107, 0.4);
+      }
+
+      .hero-image {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 45%;
+        z-index: 0;
+      }
+
+      /* Summary Section */
+      .summary {
+        background-color: #ffffff;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .summary-card {
+        background-color: var(--light-color);
+        border-radius: 18px;
+        padding: 2rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .summary-card::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -80px;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: rgba(255, 107, 107, 0.15);
+        transition: var(--transition);
+        z-index: 0;
+      }
+
+      .summary-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+      }
+
+      .summary-card:hover::before {
+        transform: scale(1.2);
+        opacity: 0.8;
+      }
+
+      .summary-card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.6rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .summary-card p,
+      .summary-card ul {
+        position: relative;
+        z-index: 1;
+        color: rgba(18, 18, 18, 0.8);
+      }
+
+      .summary-card ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.6rem;
+      }
+
+      .summary-card ul li {
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .summary-card ul li::before {
+        content: "\2022";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+      /* About Section */
+      .about {
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -80px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: rgba(255, 107, 107, 0.1);
+        z-index: 0;
+      }
+
+      .about::after {
+        content: "";
+        position: absolute;
+        bottom: -150px;
+        left: -150px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(255, 142, 83, 0.05);
+        z-index: 0;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-image {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: var(--accent-gradient);
+        filter: blur(50px);
+        opacity: 0.6;
+        top: -30px;
+        right: -30px;
+        z-index: 0;
+        transition: var(--transition);
+      }
+
+      .about-image:hover::before {
+        transform: scale(1.2);
+      }
+
+      .about-image img {
+        width: 100%;
+        display: block;
+        border-radius: 20px;
+        transition: var(--transition);
+        transform: scale(1.01);
+        filter: contrast(1.05);
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .about-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        pointer-events: none;
+      }
+
+      .about-text h2 {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .about-text h2::after {
+        background: var(--accent-gradient);
+        height: 4px;
+        border-radius: 2px;
+        width: 60px;
+      }
+
+      .about-text p {
+        line-height: 1.8;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .skills {
+        margin-top: 2.5rem;
+      }
+
+      .skills h3 {
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+        font-size: 1.5rem;
+      }
+
+      .skills h3::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--accent-gradient);
+        border-radius: 3px;
+      }
+
+      .skills-category {
+        margin-bottom: 2rem;
+      }
+
+      .skills-category h4 {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .skill-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.6rem 1.2rem;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: var(--transition);
+      }
+
+      .skill-item:hover {
+        background: linear-gradient(
+          135deg,
+          var(--accent-color) 0%,
+          rgba(255, 142, 83, 0.8) 100%
+        );
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .skill-item:hover::before {
+        left: 100%;
+        transition: 0.7s;
+      }
+
+      .skills-category .skills-list.small-gap {
+        gap: 0.6rem;
+      }
+
+
+
+      /* Work Section */
+      .work {
+        background-color: var(--light-color);
+      }
+
+      .work-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+      }
+
+      .work-intro h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-image {
+        position: relative;
+        overflow: hidden;
+        height: 250px;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.05);
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .project-tag {
+        background-color: #f0f0f0;
+        padding: 0.3rem 0.8rem;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        color: var(--primary-color);
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-description {
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .project-link {
+        display: inline-block;
+        color: var(--accent-color);
+        font-weight: 500;
+      }
+
+      .project-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Experience Section */
+      .experience {
+        background-color: var(--dark-color);
+        color: var(--light-color);
+      }
+
+      .experience-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+      }
+
+      .experience-intro h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 4rem;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-content {
+        position: relative;
+        width: calc(50% - 2rem);
+        padding: 1.5rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        left: calc(50% + 2rem);
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        left: 0;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        top: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-date {
+        font-size: 0.9rem;
+        color: var(--accent-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .timeline-description {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .timeline-description ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.6rem;
+      }
+
+      .timeline-description ul li {
+        position: relative;
+        padding-left: 1.2rem;
+      }
+
+      .timeline-description ul li::before {
+        content: "\2022";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      .timeline-description p {
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      /* Contact Section */
+      .contact {
+        background-color: var(--light-color);
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .contact-info h3 {
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-info p {
+        margin-bottom: 2rem;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: var(--transition);
+      }
+
+      .contact-link i {
+        font-size: 1.5rem;
+        color: var(--accent-color);
+      }
+
+      .contact-link:hover {
+        transform: translateX(5px);
+      }
+
+      .contact-form .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+      }
+
+      .contact-form textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Languages Section */
+      .languages {
+        background-color: #ffffff;
+      }
+
+      .languages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .language-card {
+        background-color: var(--light-color);
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .language-card::after {
+        content: "";
+        position: absolute;
+        bottom: -60px;
+        right: -60px;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: rgba(255, 142, 83, 0.18);
+        transition: var(--transition);
+      }
+
+      .language-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .language-card:hover::after {
+        transform: scale(1.2);
+      }
+
+      .language-card h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+      }
+
+      .language-card span {
+        color: rgba(18, 18, 18, 0.7);
+        font-weight: 500;
+      }
+
+      /* Certificates Section */
+      .certificates {
+        background-color: var(--light-color);
+      }
+
+      .certificates-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .certificates-list {
+        list-style: none;
+        margin: 3rem 0 0;
+        padding: 0;
+        display: grid;
+        gap: 1.2rem;
+      }
+
+      .certificates-list li {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        transition: var(--transition);
+      }
+
+      .certificates-list li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .certificates-list li span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: var(--accent-gradient);
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .certificates-list li div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .certificates-list li h4 {
+        font-size: 1.1rem;
+        color: var(--dark-color);
+      }
+
+      .certificates-list li p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: rgba(18, 18, 18, 0.7);
+      }
+
+      /* Education Section */
+      .education {
+        background-color: #fafafa;
+      }
+
+      .education-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+      }
+
+      .education-intro h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+      }
+
+      .education-card {
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .education-card::after {
+        content: "";
+        position: absolute;
+        top: -70px;
+        right: -70px;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: rgba(255, 107, 107, 0.15);
+        transition: var(--transition);
+      }
+
+      .education-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+      }
+
+      .education-card:hover::after {
+        transform: scale(1.2);
+      }
+
+      .education-card h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+      }
+
+      .education-card h4 {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: rgba(54, 69, 79, 0.8);
+      }
+
+      .education-card time {
+        display: inline-block;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        color: var(--accent-color);
+        font-weight: 600;
+      }
+
+      .education-card p {
+        margin-bottom: 0;
+        color: rgba(18, 18, 18, 0.75);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--light-color);
+        font-size: 1.2rem;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Animation Classes */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.8s cubic-bezier(0.5, 0, 0, 1),
+          transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+        will-change: opacity, transform;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Staggered animation for multiple elements */
+      .projects-grid .project-card:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .projects-grid .project-card:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .projects-grid .project-card:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .projects-grid .project-card:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .projects-grid .project-card:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .projects-grid .project-card:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+
+      .timeline-item:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .timeline-item:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .timeline-item:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .timeline-item:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .timeline-item:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .timeline-item:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+
+      /* Floating animation */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Text reveal animation */
+      @keyframes reveal {
+        0% {
+          clip-path: inset(0 100% 0 0);
+        }
+        100% {
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      /* Pulse animation */
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(255, 107, 107, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+        }
+      }
+
+      /* Shimmer effect */
+      @keyframes shimmer {
+        0% {
+          background-position: -100% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+          font-size: 3rem;
         }
 
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -0.5rem;
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-        }
-
-        h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        .highlight {
-            color: var(--accent-color);
-        }
-
-        /* Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem 0;
-            z-index: 100;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            transition: var(--transition);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        header.scrolled {
-            padding: 0.8rem 0;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            position: relative;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-            transition: var(--transition);
-        }
-        
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent-gradient);
-            transform: scaleX(0.7);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo:hover::after {
-            transform: scaleX(1);
-        }
-
-        .logo span {
-            color: var(--accent-color);
-            position: relative;
-        }
-        
-        .logo span::before {
-            content: '';
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            top: 5px;
-            right: -8px;
-            opacity: 0.7;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-        
-        .nav-toggle:hover {
-            color: var(--accent-color);
-            transform: rotate(90deg);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2.5rem;
-        }
-
-        nav ul li a {
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: var(--transition);
-            letter-spacing: 0.02em;
-        }
-        
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            visibility: hidden;
-            transform: scaleX(0);
-            transition: all 0.3s ease-in-out;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-        
-        nav ul li a:hover::before,
-        nav ul li a.active::before {
-            visibility: visible;
-            transform: scaleX(1);
-        }
-        
-        nav ul li a.active {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background-color: var(--light-color);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--accent-gradient);
-            color: white;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #FF8E53 0%, #FF6B6B 100%);
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 25px rgba(255, 107, 107, 0.4);
-            color: white;
-        }
-        
-        .btn:hover::before {
-            opacity: 1;
-        }
-        
-        .btn:active {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(255, 107, 107, 0.4);
-        }
-
-        .hero-image {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            max-width: 45%;
-            z-index: 0;
-        }
-
-        /* Summary Section */
-        .summary {
-            background-color: #ffffff;
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .summary-card {
-            background-color: var(--light-color);
-            border-radius: 18px;
-            padding: 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .summary-card::before {
-            content: '';
-            position: absolute;
-            top: -80px;
-            right: -80px;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: rgba(255, 107, 107, 0.15);
-            transition: var(--transition);
-            z-index: 0;
-        }
-
-        .summary-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
-        }
-
-        .summary-card:hover::before {
-            transform: scale(1.2);
-            opacity: 0.8;
-        }
-
-        .summary-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.6rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .summary-card p,
-        .summary-card ul {
-            position: relative;
-            z-index: 1;
-            color: rgba(18, 18, 18, 0.8);
-        }
-
-        .summary-card ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            gap: 0.6rem;
-        }
-
-        .summary-card ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            font-size: 1rem;
-        }
-
-        .summary-card ul li::before {
-            content: '\2022';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .about::before {
-            content: '';
-            position: absolute;
-            top: -80px;
-            right: -80px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: rgba(255, 107, 107, 0.1);
-            z-index: 0;
-        }
-        
-        .about::after {
-            content: '';
-            position: absolute;
-            bottom: -150px;
-            left: -150px;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(255, 142, 83, 0.05);
-            z-index: 0;
+          font-size: 2.2rem;
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .about-image::before {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            filter: blur(50px);
-            opacity: 0.6;
-            top: -30px;
-            right: -30px;
-            z-index: 0;
-            transition: var(--transition);
-        }
-        
-        .about-image:hover::before {
-            transform: scale(1.2);
-        }
-
-        .about-image img {
-            width: 100%;
-            display: block;
-            border-radius: 20px;
-            transition: var(--transition);
-            transform: scale(1.01);
-            filter: contrast(1.05);
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .about-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            pointer-events: none;
-        }
-
-        .about-text h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .about-text h2::after {
-            background: var(--accent-gradient);
-            height: 4px;
-            border-radius: 2px;
-            width: 60px;
-        }
-        
-        .about-text p {
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .skills {
-            margin-top: 2.5rem;
-        }
-
-        .skills h3 {
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-            font-size: 1.5rem;
-        }
-        
-        .skills h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--accent-gradient);
-            border-radius: 3px;
-        }
-
-        .skills-category {
-            margin-bottom: 2rem;
-        }
-
-        .skills-category h4 {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 600;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .skill-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: var(--transition);
-        }
-
-        .skill-item:hover {
-            background: linear-gradient(135deg, var(--accent-color) 0%, rgba(255, 142, 83, 0.8) 100%);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .skill-item:hover::before {
-            left: 100%;
-            transition: 0.7s;
-        }
-
-        .skills-category .skills-list.small-gap {
-            gap: 0.6rem;
-        }
-
-        /* Roadmap Section */
-        .roadmap {
-            background-color: #fafafa;
-            padding: 5rem 0;
-        }
-
-        .roadmap-intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .roadmap-intro h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .mermaid-container {
-            background-color: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow-x: auto;
-        }
-
-        .mermaid {
-            display: flex;
-            justify-content: center;
-            min-height: 400px;
-        }
-
-        /* Work Section */
-        .work {
-            background-color: var(--light-color);
-        }
-
-        .work-intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .work-intro h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            position: relative;
-            overflow: hidden;
-            height: 250px;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .project-tag {
-            background-color: #f0f0f0;
-            padding: 0.3rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            color: var(--primary-color);
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-description {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .project-link {
-            display: inline-block;
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Experience Section */
-        .experience {
-            background-color: var(--dark-color);
-            color: var(--light-color);
-        }
-
-        .experience-intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .experience-intro h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 4rem;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-content {
-            position: relative;
-            width: calc(50% - 2rem);
-            padding: 1.5rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            left: calc(50% + 2rem);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            left: 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            top: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-date {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-subtitle {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .timeline-description {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .timeline-description ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            gap: 0.6rem;
-        }
-
-        .timeline-description ul li {
-            position: relative;
-            padding-left: 1.2rem;
-        }
-
-        .timeline-description ul li::before {
-            content: '\2022';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .timeline-description p {
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--light-color);
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
 
         .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+          grid-template-columns: 1fr;
+          gap: 3rem;
         }
 
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
+        .hero-image {
+          max-width: 400px;
+          opacity: 0.3;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-toggle {
+          display: block;
         }
 
-        .contact-info p {
-            margin-bottom: 2rem;
+        nav {
+          position: fixed;
+          top: 0;
+          right: -300px;
+          width: 300px;
+          height: 100vh;
+          background-color: var(--dark-color);
+          padding: 2rem;
+          transition: var(--transition);
+          z-index: 999;
         }
 
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        nav.active {
+          right: 0;
         }
 
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: var(--transition);
+        nav ul {
+          flex-direction: column;
+          gap: 2rem;
         }
 
-        .contact-link i {
-            font-size: 1.5rem;
-            color: var(--accent-color);
+        nav ul li {
+          margin-left: 0;
         }
 
-        .contact-link:hover {
-            transform: translateX(5px);
+        nav ul li a {
+          color: var(--light-color);
+          font-size: 1.2rem;
         }
 
-        .contact-form .form-group {
-            margin-bottom: 1.5rem;
+        .close-nav {
+          display: block;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          background: none;
+          border: none;
+          color: var(--light-color);
+          font-size: 1.5rem;
+          cursor: pointer;
         }
 
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+        .hero h1 {
+          font-size: 2.5rem;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: var(--transition);
+        .hero p {
+          font-size: 1.1rem;
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+        .timeline::before {
+          left: 30px;
         }
 
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
+        .timeline-content {
+          width: calc(100% - 60px);
+          left: 60px !important;
         }
 
-        /* Languages Section */
-        .languages {
-            background-color: #ffffff;
+        .timeline-dot {
+          left: 30px;
         }
 
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
+        .projects-grid {
+          grid-template-columns: 1fr;
         }
 
-        .language-card {
-            background-color: var(--light-color);
-            border-radius: 16px;
-            padding: 1.8rem;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
 
-        .language-card::after {
-            content: '';
-            position: absolute;
-            bottom: -60px;
-            right: -60px;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: rgba(255, 142, 83, 0.18);
-            transition: var(--transition);
-        }
 
-        .language-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .language-card:hover::after {
-            transform: scale(1.2);
-        }
-
-        .language-card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .language-card span {
-            color: rgba(18, 18, 18, 0.7);
-            font-weight: 500;
-        }
-
-        /* Certificates Section */
-        .certificates {
-            background-color: var(--light-color);
-        }
-
-        .certificates-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .certificates-list {
-            list-style: none;
-            margin: 3rem 0 0;
-            padding: 0;
-            display: grid;
-            gap: 1.2rem;
+        .summary-card {
+          padding: 1.8rem;
         }
 
         .certificates-list li {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .certificates-list li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+          flex-direction: column;
+          align-items: flex-start;
         }
 
         .certificates-list li span {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 1.1rem;
+          margin-bottom: 0.5rem;
         }
-
-        .certificates-list li div {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-
-        .certificates-list li h4 {
-            font-size: 1.1rem;
-            color: var(--dark-color);
-        }
-
-        .certificates-list li p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: rgba(18, 18, 18, 0.7);
-        }
-
-        /* Education Section */
-        .education {
-            background-color: #fafafa;
-        }
-
-        .education-intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .education-intro h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .education-card {
-            background-color: #ffffff;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .education-card::after {
-            content: '';
-            position: absolute;
-            top: -70px;
-            right: -70px;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: rgba(255, 107, 107, 0.15);
-            transition: var(--transition);
-        }
-
-        .education-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
-        }
-
-        .education-card:hover::after {
-            transform: scale(1.2);
-        }
-
-        .education-card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .education-card h4 {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: rgba(54, 69, 79, 0.8);
-        }
-
-        .education-card time {
-            display: inline-block;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .education-card p {
-            margin-bottom: 0;
-            color: rgba(18, 18, 18, 0.75);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--light-color);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
-            will-change: opacity, transform;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Staggered animation for multiple elements */
-        .projects-grid .project-card:nth-child(1) { transition-delay: 0.1s; }
-        .projects-grid .project-card:nth-child(2) { transition-delay: 0.2s; }
-        .projects-grid .project-card:nth-child(3) { transition-delay: 0.3s; }
-        .projects-grid .project-card:nth-child(4) { transition-delay: 0.4s; }
-        .projects-grid .project-card:nth-child(5) { transition-delay: 0.5s; }
-        .projects-grid .project-card:nth-child(6) { transition-delay: 0.6s; }
-        
-        .timeline-item:nth-child(1) { transition-delay: 0.1s; }
-        .timeline-item:nth-child(2) { transition-delay: 0.2s; }
-        .timeline-item:nth-child(3) { transition-delay: 0.3s; }
-        .timeline-item:nth-child(4) { transition-delay: 0.4s; }
-        .timeline-item:nth-child(5) { transition-delay: 0.5s; }
-        .timeline-item:nth-child(6) { transition-delay: 0.6s; }
-        
-        /* Floating animation */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Text reveal animation */
-        @keyframes reveal {
-            0% { clip-path: inset(0 100% 0 0); }
-            100% { clip-path: inset(0 0 0 0); }
-        }
-        
-        /* Pulse animation */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 107, 107, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
-        }
-        
-        /* Shimmer effect */
-        @keyframes shimmer {
-            0% { background-position: -100% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 3rem;
-            }
-
-            h2 {
-                font-size: 2.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero-image {
-                max-width: 400px;
-                opacity: 0.3;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-
-            nav {
-                position: fixed;
-                top: 0;
-                right: -300px;
-                width: 300px;
-                height: 100vh;
-                background-color: var(--dark-color);
-                padding: 2rem;
-                transition: var(--transition);
-                z-index: 999;
-            }
-
-            nav.active {
-                right: 0;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            nav ul li {
-                margin-left: 0;
-            }
-
-            nav ul li a {
-                color: var(--light-color);
-                font-size: 1.2rem;
-            }
-
-            .close-nav {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-                background: none;
-                border: none;
-                color: var(--light-color);
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-content {
-                width: calc(100% - 60px);
-                left: 60px !important;
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .mermaid-container {
-                padding: 1rem;
-                overflow-x: auto;
-            }
-
-            .mermaid {
-                min-height: 300px;
-            }
-
-            .summary-card {
-                padding: 1.8rem;
-            }
-
-            .certificates-list li {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .certificates-list li span {
-                margin-bottom: 0.5rem;
-            }
-        }
+      }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+
+  </head>
+  <body>
     <!-- Header -->
     <header>
-        <div class="container header-content">
-            <a href="https://edengilbert.me/" class="logo">Eden<span>Gilbert</span></a>
-            <button class="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <button class="close-nav">
-                    <i class="fas fa-times"></i>
-                </button>
-                <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#summary">Summary</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#roadmap">Journey</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#languages">Languages</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="container header-content">
+        <a href="https://edengilbert.me/" class="logo"
+          >Eden<span>Gilbert</span></a
+        >
+        <button class="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+          <button class="close-nav">
+            <i class="fas fa-times"></i>
+          </button>
+          <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#work">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Eden Gilbert <span class="highlight">Kiseka</span></h1>
-            <p>I'm a Data Scientist and Android Developer based in Kampala, Uganda. Lead Data Scientist at Googah Goats Limited • Founder & CEO at Carthigan • Previously Junior Data Scientist at Hammer Uganda Limited and Huawei • Mobile Developer specializing in Kotlin, React Native, and Lynx.js • Electrical Engineering background with IoT experience • Passionate about creating data-driven solutions using cutting-edge technologies.</p>
-            <a href="#work" class="btn">View My Work</a>
-        </div>
-        <img src="images/eden-gilbert.png" alt="Eden Gilbert" class="hero-image">
+      <div class="container hero-content">
+        <h1>Eden Gilbert <span class="highlight">Kiseka</span></h1>
+        <p>
+          I'm a Data Scientist and Android Developer based in Kampala, Uganda.
+          Lead Data Scientist at Googah Goats Limited • Founder & CEO at
+          Carthigan • Previously Junior Data Scientist at Hammer Uganda Limited
+          and Huawei • Mobile Developer specializing in Kotlin, React Native,
+          and Lynx.js • Electrical Engineering background with IoT experience •
+          Passionate about creating data-driven solutions using cutting-edge
+          technologies.
+        </p>
+        <a href="#work" class="btn">View My Work</a>
+      </div>
+      <img
+        src="images/eden-gilbert.png"
+        alt="Eden Gilbert"
+        class="hero-image"
+      />
     </section>
 
     <!-- Summary Section -->
     <section class="summary" id="summary">
-        <div class="container">
-            <div class="fade-in">
-                <h2>Professional Snapshot</h2>
-                <p>Versatile Data Scientist and Android Developer with 6+ years of experience across data science, mobile development, electrical engineering, and creative disciplines. I bridge analytical rigor with human-centered design to deliver data-driven products for fintech, telecommunications, IoT, and creative industries.</p>
-            </div>
-            <div class="summary-grid">
-                <div class="summary-card fade-in">
-                    <h3>Current Roles</h3>
-                    <ul>
-                        <li>Lead Data Scientist • Googah Goats Limited</li>
-                        <li>Founder & CEO, Electrical Engineer • Carthigan</li>
-                        <li>FX Trader • Independent (Remote)</li>
-                    </ul>
-                </div>
-                <div class="summary-card fade-in">
-                    <h3>Core Strengths</h3>
-                    <ul>
-                        <li>Machine learning and statistical modeling for network and market intelligence</li>
-                        <li>Cross-platform Android development in Kotlin, React Native, and Lynx.js</li>
-                        <li>IoT systems integration, embedded hardware, and PostgreSQL-based telemetry</li>
-                        <li>Data visualization, dashboards, and stakeholder storytelling</li>
-                    </ul>
-                </div>
-                <div class="summary-card fade-in">
-                    <h3>Industry Impact</h3>
-                    <ul>
-                        <li>Telecommunications performance optimization and customer analytics</li>
-                        <li>Fintech platform design and full-stack e-commerce experiences</li>
-                        <li>Trading automation, risk systems, and quantitative research</li>
-                        <li>Photography, music production, and UI/UX for global brands</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="container">
+        <div class="fade-in">
+          <h2>Professional Snapshot</h2>
+          <p>
+            Versatile Data Scientist and Android Developer with 6+ years of
+            experience across data science, mobile development, electrical
+            engineering, and creative disciplines. I bridge analytical rigor
+            with human-centered design to deliver data-driven products for
+            fintech, telecommunications, IoT, and creative industries.
+          </p>
         </div>
+        <div class="summary-grid">
+          <div class="summary-card fade-in">
+            <h3>Current Roles</h3>
+            <ul>
+              <li>Lead Data Scientist • Googah Goats Limited</li>
+              <li>Founder & CEO, Electrical Engineer • Carthigan</li>
+              <li>FX Trader • Independent (Remote)</li>
+            </ul>
+          </div>
+          <div class="summary-card fade-in">
+            <h3>Core Strengths</h3>
+            <ul>
+              <li>
+                Machine learning and statistical modeling for network and market
+                intelligence
+              </li>
+              <li>
+                Cross-platform Android development in Kotlin, React Native, and
+                Lynx.js
+              </li>
+              <li>
+                IoT systems integration, embedded hardware, and PostgreSQL-based
+                telemetry
+              </li>
+              <li>
+                Data visualization, dashboards, and stakeholder storytelling
+              </li>
+            </ul>
+          </div>
+          <div class="summary-card fade-in">
+            <h3>Industry Impact</h3>
+            <ul>
+              <li>
+                Telecommunications performance optimization and customer
+                analytics
+              </li>
+              <li>
+                Fintech platform design and full-stack e-commerce experiences
+              </li>
+              <li>
+                Trading automation, risk systems, and quantitative research
+              </li>
+              <li>
+                Photography, music production, and UI/UX for global brands
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Resume Section -->
     <section class="resume" id="resume">
-        <div class="container">
-            <div class="resume-content">
-                <div class="resume-text fade-in">
-                    <h2>Resume</h2>
-                    <p>View or download my resume to learn more about my qualifications and experience.</p>
-                    <a href="Eden Gilbert Resume.pdf" class="btn" download>Download Resume</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="resume-content">
+          <div class="resume-text fade-in">
+            <h2>Resume</h2>
+            <p>
+              View or download my resume to learn more about my qualifications
+              and experience.
+            </p>
+            <a href="Eden Gilbert Resume.pdf" class="btn" download
+              >Download Resume</a
+            >
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image fade-in">
-                    <img src="images/profile-photo.jpg" alt="Eden Gilbert">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-image fade-in">
+            <img src="images/profile-photo.jpg" alt="Eden Gilbert" />
+          </div>
+          <div class="about-text fade-in">
+            <h2>About Me</h2>
+            <p>
+              Versatile Data Scientist and Android Developer with 6+ years of
+              experience spanning data science, mobile development, electrical
+              engineering, and creative design. Skilled in machine learning,
+              Android development with Kotlin, modern web frameworks, and
+              database management. Proficient in multiple languages, delivering
+              innovative technical solutions across diverse industries from
+              fintech to IoT systems.
+            </p>
+            <p>
+              Proficient in multiple languages (English, Luganda, French), I
+              deliver culturally resonant designs and technical solutions. I'm
+              passionate about creating innovative solutions using cutting-edge
+              technologies with a focus on user-centered design.
+            </p>
+            <div class="skills">
+              <h3>Technical Skills</h3>
+
+              <div class="skills-category">
+                <h4>Mobile Development</h4>
+                <div class="skills-list">
+                  <span class="skill-item">Kotlin</span>
+                  <span class="skill-item">React Native</span>
+                  <span class="skill-item">Lynx.js</span>
+                  <span class="skill-item">Android Development</span>
                 </div>
-                <div class="about-text fade-in">
-                    <h2>About Me</h2>
-                    <p>Versatile Data Scientist and Android Developer with 6+ years of experience spanning data science, mobile development, electrical engineering, and creative design. Skilled in machine learning, Android development with Kotlin, modern web frameworks, and database management. Proficient in multiple languages, delivering innovative technical solutions across diverse industries from fintech to IoT systems.</p>
-                    <p>Proficient in multiple languages (English, Luganda, French), I deliver culturally resonant designs and technical solutions. I'm passionate about creating innovative solutions using cutting-edge technologies with a focus on user-centered design.</p>
-                    <div class="skills">
-                        <h3>Technical Skills</h3>
-                        
-                        <div class="skills-category">
-                            <h4>Mobile Development</h4>
-                            <div class="skills-list">
-                                <span class="skill-item">Kotlin</span>
-                                <span class="skill-item">React Native</span>
-                                <span class="skill-item">Lynx.js</span>
-                                <span class="skill-item">Android Development</span>
-                            </div>
-                        </div>
+              </div>
 
-                        <div class="skills-category">
-                            <h4>Programming Languages</h4>
-                            <div class="skills-list">
-                                <span class="skill-item">Python</span>
-                                <span class="skill-item">C++</span>
-                                <span class="skill-item">Kotlin</span>
-                                <span class="skill-item">JavaScript</span>
-                                <span class="skill-item">TypeScript</span>
-                                <span class="skill-item">Go</span>
-                                <span class="skill-item">SQL</span>
-                                <span class="skill-item">Bash</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>Data Science & Machine Learning</h4>
-                            <div class="skills-list">
-                                <span class="skill-item">Python</span>
-                                <span class="skill-item">TensorFlow</span>
-                                <span class="skill-item">Data Analysis</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>Web Development</h4>
-                            <div class="skills-list">
-                                <span class="skill-item">HTML</span>
-                                <span class="skill-item">CSS</span>
-                                <span class="skill-item">Vue.js</span>
-                                <span class="skill-item">Angular</span>
-                                <span class="skill-item">RESTful APIs</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>Database Systems</h4>
-                            <div class="skills-list">
-                                <span class="skill-item">PostgreSQL</span>
-                                <span class="skill-item">SQLite</span>
-                                <span class="skill-item">Supabase</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>UI/UX Design</h4>
-                            <div class="skills-list">
-                                <span class="skill-item">Figma</span>
-                                <span class="skill-item">Penpot</span>
-                                <span class="skill-item">UI/UX Design</span>
-                            </div>
-                        </div>
-                        <div class="skills-category">
-                            <h4>Electrical Engineering & IoT</h4>
-                            <div class="skills-list">
-                                <span class="skill-item">Circuit Design</span>
-                                <span class="skill-item">IoT Integration</span>
-                                <span class="skill-item">Hardware/Software Integration</span>
-                                <span class="skill-item">Microcontroller Programming</span>
-                                <span class="skill-item">MATLAB</span>
-                                <span class="skill-item">PSpice</span>
-                                <span class="skill-item">Altium Designer</span>
-                                <span class="skill-item">AutoCAD Electrical</span>
-                            </div>
-                        </div>
-                        <div class="skills-category">
-                            <h4>Software & Deployment Tools</h4>
-                            <div class="skills-list">
-                                <span class="skill-item">Arduino IDE</span>
-                                <span class="skill-item">VS Code</span>
-                                <span class="skill-item">IDX</span>
-                                <span class="skill-item">Heroku</span>
-                                <span class="skill-item">Git</span>
-                                <span class="skill-item">Android Studio</span>
-                            </div>
-                        </div>
-                        <div class="skills-category">
-                            <h4>Photography</h4>
-                            <div class="skills-list small-gap">
-                                <span class="skill-item">Lightroom CC</span>
-                                <span class="skill-item">Capture One</span>
-                                <span class="skill-item">Portrait & Commercial Shoots</span>
-                            </div>
-                        </div>
-                        <div class="skills-category">
-                            <h4>Music Production</h4>
-                            <div class="skills-list small-gap">
-                                <span class="skill-item">Ableton Live</span>
-                                <span class="skill-item">FL Studio</span>
-                                <span class="skill-item">Audio Engineering</span>
-                            </div>
-                        </div>
-                    </div>
+              <div class="skills-category">
+                <h4>Programming Languages</h4>
+                <div class="skills-list">
+                  <span class="skill-item">Python</span>
+                  <span class="skill-item">C++</span>
+                  <span class="skill-item">Kotlin</span>
+                  <span class="skill-item">JavaScript</span>
+                  <span class="skill-item">TypeScript</span>
+                  <span class="skill-item">Go</span>
+                  <span class="skill-item">SQL</span>
+                  <span class="skill-item">Bash</span>
                 </div>
+              </div>
+
+              <div class="skills-category">
+                <h4>Data Science & Machine Learning</h4>
+                <div class="skills-list">
+                  <span class="skill-item">Python</span>
+                  <span class="skill-item">TensorFlow</span>
+                  <span class="skill-item">Data Analysis</span>
+                </div>
+              </div>
+
+              <div class="skills-category">
+                <h4>Web Development</h4>
+                <div class="skills-list">
+                  <span class="skill-item">HTML</span>
+                  <span class="skill-item">CSS</span>
+                  <span class="skill-item">Vue.js</span>
+                  <span class="skill-item">Angular</span>
+                  <span class="skill-item">RESTful APIs</span>
+                </div>
+              </div>
+
+              <div class="skills-category">
+                <h4>Database Systems</h4>
+                <div class="skills-list">
+                  <span class="skill-item">PostgreSQL</span>
+                  <span class="skill-item">SQLite</span>
+                  <span class="skill-item">Supabase</span>
+                </div>
+              </div>
+
+              <div class="skills-category">
+                <h4>UI/UX Design</h4>
+                <div class="skills-list">
+                  <span class="skill-item">Figma</span>
+                  <span class="skill-item">Penpot</span>
+                  <span class="skill-item">UI/UX Design</span>
+                </div>
+              </div>
+              <div class="skills-category">
+                <h4>Electrical Engineering & IoT</h4>
+                <div class="skills-list">
+                  <span class="skill-item">Circuit Design</span>
+                  <span class="skill-item">IoT Integration</span>
+                  <span class="skill-item">Hardware/Software Integration</span>
+                  <span class="skill-item">Microcontroller Programming</span>
+                  <span class="skill-item">MATLAB</span>
+                  <span class="skill-item">PSpice</span>
+                  <span class="skill-item">Altium Designer</span>
+                  <span class="skill-item">AutoCAD Electrical</span>
+                </div>
+              </div>
+              <div class="skills-category">
+                <h4>Software & Deployment Tools</h4>
+                <div class="skills-list">
+                  <span class="skill-item">Arduino IDE</span>
+                  <span class="skill-item">VS Code</span>
+                  <span class="skill-item">IDX</span>
+                  <span class="skill-item">Heroku</span>
+                  <span class="skill-item">Git</span>
+                  <span class="skill-item">Android Studio</span>
+                </div>
+              </div>
+              <div class="skills-category">
+                <h4>Photography</h4>
+                <div class="skills-list small-gap">
+                  <span class="skill-item">Lightroom CC</span>
+                  <span class="skill-item">Capture One</span>
+                  <span class="skill-item">Portrait & Commercial Shoots</span>
+                </div>
+              </div>
+              <div class="skills-category">
+                <h4>Music Production</h4>
+                <div class="skills-list small-gap">
+                  <span class="skill-item">Ableton Live</span>
+                  <span class="skill-item">FL Studio</span>
+                  <span class="skill-item">Audio Engineering</span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Roadmap Section -->
-    <section class="roadmap" id="roadmap">
-        <div class="container">
-            <div class="roadmap-intro fade-in">
-                <h2>My Journey</h2>
-                <p>A visual roadmap of my multidisciplinary path from education through electrical engineering to data science and Android development.</p>
-            </div>
-            <div class="roadmap-diagram fade-in">
-                <div class="mermaid-container">
-                    <div class="mermaid">
-graph TD
-    A["Education Foundation<br/>Physical Sciences & Computer Science"] --> B["Electrical Engineering<br/>Hardware & IoT Systems"]
-    A --> C["Software Development<br/>Data Science & Mobile"]
-    
-    B --> D["Electrical Engineer<br/>Neriko Electronics"]
-    C --> E["Junior Data Scientist<br/>Hammer Uganda Limited & Huawei"]
-    
-    E --> O["Lead Data Scientist<br/>Googah Goats Limited"]
-    E --> F["Android Development<br/>Kotlin & React Native"]
-    D --> G["IoT Development<br/>Hardware + Software Integration"]
-    D --> P["Founder & CEO<br/>Carthigan"]
-
-    O --> N
-    P --> N
-    
-    F --> H["Lynx.js Framework<br/>Advanced Mobile Development"]
-    G --> I["Data Analysis<br/>Statistical Modeling"]
-    
-    H --> J["UI/UX Design<br/>Figma & Penpot"]
-    I --> K["Web Development<br/>Vue.js & Angular"]
-    
-    J --> L["Database Systems<br/>PostgreSQL, SQLite, Supabase"]
-    K --> M["Associate Degree<br/>Computer Science, University of the People - Expected 2027"]
-    
-    L --> N["Future Vision<br/>Data-Driven Solutions"]
-    M --> N
-    
-    style A fill:#e1f5fe
-    style B fill:#fff3e0
-    style C fill:#f3e5f5
-    style D fill:#e8f5e8
-    style E fill:#f1f8e9
-    style F fill:#fff8e1
-    style G fill:#fce4ec
-    style H fill:#e0f2f1
-    style I fill:#f9fbe7
-    style J fill:#fff3e0
-    style K fill:#e3f2fd
-    style L fill:#e0f7fa
-    style M fill:#e1f5fe
-    style N fill:#ff6b6b,color:#fff
-    style O fill:#e0f7fa
-    style P fill:#e8f5e8
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Work Section -->
     <section class="work" id="work">
-        <div class="container">
-            <div class="work-intro fade-in">
-                <h2>Featured Work</h2>
-                <p>A selection of my recent projects in electrical engineering, data science, Android development, and UI/UX design.</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <iframe
-                                src="https://instagram-landing-page-concept.vercel.app/"
-                                width="100%"
-                                height="100%"
-                                style="border: none;"
-                                title="Instagram Landing Page Concept"></iframe>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="project-tag">UI/UX Design</span>
-                            <span class="project-tag">Next.js</span>
-                            <span class="project-tag">Tailwind CSS</span>
-                        </div>
-                        <h3 class="project-title">Instagram Landing Page Concept</h3>
-                        <p class="project-description">A modern, conceptual redesign of the Instagram landing page focusing on visual flow and user engagement.</p>
-                        <a href="https://instagram-landing-page-concept.vercel.app/" class="project-link" target="_blank">View Live Concept <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="images/restaurant-platform.png" alt="Pizza Vesuvio Website">
-                       
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="project-tag">Flutter</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Kotlin</span>
-                            <span class="project-tag">Swift</span>
-                            <span class="project-tag">MySQL</span>
-                        </div>
-                        <h3 class="project-title">Restaurant Mobile & Web Platform</h3>
-                        <p class="project-description">Complete cross-platform solution for Pizza Vesuvio Cape Town with Flutter mobile app, iOS companion app using Swift, and Android native features using Kotlin. Deployed on Ubuntu server.</p>
-                        <a href="https://pizzavesuviocpt.co.za/" class="project-link" target="_blank">Visit Site <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                  <div class="project-image">
-                      <iframe
-                          src="https://vesuvio-cpt-ordering-app.vercel.app/"
-                        width="100%"
-                        height="100%"
-                        style="border: none;"
-                        title="Vesuvio CPT Ordering App"
-                      ></iframe>
-                  </div>
-                  <div class="project-content">
-                      <div class="project-tags">
-                          <span class="project-tag">Frontend</span>
-                          <span class="project-tag">React</span>
-                      </div>
-                      <h3 class="project-title">Vesuvio CPT Ordering App</h3>
-                      <a href="https://vesuvio-cpt-ordering-app.vercel.app/" class="project-link" target="_blank">View Project on CPT App <i class="fas fa-arrow-right"></i></a>
-                  </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <iframe
-                                src="https://forex-insights.vercel.app/"
-                                width="100%"
-                                height="100%"
-                                style="border: none;"
-                                title="Forex Insights"></iframe>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="project-tag">Data Science</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Pandas</span>
-                        </div>
-                        <h3 class="project-title">Forex Insights Dashboard</h3>
-                        <p class="project-description">Data visualization dashboard for forex market analysis using Python, Pandas, and statistical modeling techniques.</p>
-                        <a href="https://forex-insights.vercel.app/" class="project-link" target="_blank">View Dashboard <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="images/iot-mobile-analytics.png" alt="AI-Powered Forex Analysis Mobile App">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="project-tag">Kotlin</span>
-                            <span class="project-tag">React Native</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">scikit-learn</span>
-                            <span class="project-tag">Supabase</span>
-                        </div>
-                        <h3 class="project-title">Data-Driven Mobile Analytics App</h3>
-                        <p class="project-description">Cross-platform mobile application using Kotlin and React Native with machine learning models for data analysis and predictive modeling.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <iframe
-                                src="https://coinpay.cr"
-                                width="100%"
-                                height="100%"
-                                style="border: none;"
-                                title="CoinPay UI/UX Design"></iframe>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="project-tag">UI/UX Design</span>
-                            <span class="project-tag">Figma</span>
-                            <span class="project-tag">Fintech</span>
-                        </div>
-                        <h3 class="project-title">CoinPay UI/UX Design</h3>
-                        <p class="project-description">Designed logos, user interface, and user experience for a fintech platform during internship.</p>
-                        <a href="https://coinpay.cr" class="project-link" target="_blank">Visit Website <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <iframe
-                                src="https://kathrynholeton.com"
-                                width="100%"
-                                height="100%"
-                                style="border: none;"
-                                title="Creative Writing Blog"></iframe>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="project-tag">Content Creation</span>
-                            <span class="project-tag">Writing</span>
-                            <span class="project-tag">Web Design</span>
-                        </div>
-                        <h3 class="project-title">Creative Writing Blog</h3>
-                        <p class="project-description">Authored and published short stories, poems, and articles on a personal blog with Katheryn Holeton.</p>
-                        <a href="https://kathrynholeton.com" class="project-link" target="_blank">Visit Blog <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <iframe
-                                src="https://bio.site/edengilbert"
-                                width="100%"
-                                height="100%"
-                                style="border: none;"
-                                title="Music Production Portfolio"></iframe>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="project-tag">Music Production</span>
-                            <span class="project-tag">Audio Engineering</span>
-                            <span class="project-tag">Composition</span>
-                        </div>
-                        <h3 class="project-title">Music Production Portfolio</h3>
-                        <p class="project-description">Produced, mixed, and mastered tracks using Ableton Live and FL Studio for various clients.</p>
-                        <a href="https://bio.site/edengilbert" class="project-link">View Portfolio <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="images/iot-mobile-analytics.png" alt="IoT Device Controller">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="project-tag">Kotlin</span>
-                            <span class="project-tag">Lynx.js</span>
-                            <span class="project-tag">SQLite</span>
-                            <span class="project-tag">Supabase</span>
-                        </div>
-                        <h3 class="project-title">Android IoT Controller</h3>
-                        <p class="project-description">Mobile application for controlling IoT devices using Kotlin and Lynx.js framework with SQLite and Supabase integration for data management.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="work-intro fade-in">
+          <h2>Featured Work</h2>
+          <p>
+            A selection of my recent projects in electrical engineering, data
+            science, Android development, and UI/UX design.
+          </p>
         </div>
+        <div class="projects-grid">
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <iframe
+                src="https://instagram-landing-page-concept.vercel.app/"
+                width="100%"
+                height="100%"
+                style="border: none"
+                title="Instagram Landing Page Concept"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">UI/UX Design</span>
+                <span class="project-tag">Next.js</span>
+                <span class="project-tag">Tailwind CSS</span>
+              </div>
+              <h3 class="project-title">Instagram Landing Page Concept</h3>
+              <p class="project-description">
+                A modern, conceptual redesign of the Instagram landing page
+                focusing on visual flow and user engagement.
+              </p>
+              <a
+                href="https://instagram-landing-page-concept.vercel.app/"
+                class="project-link"
+                target="_blank"
+                >View Live Concept <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <img
+                src="images/restaurant-platform.png"
+                alt="Pizza Vesuvio Website"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">Flutter</span>
+                <span class="project-tag">React</span>
+                <span class="project-tag">Kotlin</span>
+                <span class="project-tag">Swift</span>
+                <span class="project-tag">MySQL</span>
+              </div>
+              <h3 class="project-title">Restaurant Mobile & Web Platform</h3>
+              <p class="project-description">
+                Complete cross-platform solution for Pizza Vesuvio Cape Town
+                with Flutter mobile app, iOS companion app using Swift, and
+                Android native features using Kotlin. Deployed on Ubuntu server.
+              </p>
+              <a
+                href="https://pizzavesuviocpt.co.za/"
+                class="project-link"
+                target="_blank"
+                >Visit Site <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <iframe
+                src="https://vesuvio-cpt-ordering-app.vercel.app/"
+                width="100%"
+                height="100%"
+                style="border: none"
+                title="Vesuvio CPT Ordering App"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">Frontend</span>
+                <span class="project-tag">React</span>
+              </div>
+              <h3 class="project-title">Vesuvio CPT Ordering App</h3>
+              <a
+                href="https://vesuvio-cpt-ordering-app.vercel.app/"
+                class="project-link"
+                target="_blank"
+                >View Project on CPT App <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <iframe
+                src="https://forex-insights.vercel.app/"
+                width="100%"
+                height="100%"
+                style="border: none"
+                title="Forex Insights"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">Data Science</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Pandas</span>
+              </div>
+              <h3 class="project-title">Forex Insights Dashboard</h3>
+              <p class="project-description">
+                Data visualization dashboard for forex market analysis using
+                Python, Pandas, and statistical modeling techniques.
+              </p>
+              <a
+                href="https://forex-insights.vercel.app/"
+                class="project-link"
+                target="_blank"
+                >View Dashboard <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <img
+                src="images/iot-mobile-analytics.png"
+                alt="AI-Powered Forex Analysis Mobile App"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">Kotlin</span>
+                <span class="project-tag">React Native</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">scikit-learn</span>
+                <span class="project-tag">Supabase</span>
+              </div>
+              <h3 class="project-title">Data-Driven Mobile Analytics App</h3>
+              <p class="project-description">
+                Cross-platform mobile application using Kotlin and React Native
+                with machine learning models for data analysis and predictive
+                modeling.
+              </p>
+              <a href="#" class="project-link"
+                >View Project <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <iframe
+                src="https://coinpay.cr"
+                width="100%"
+                height="100%"
+                style="border: none"
+                title="CoinPay UI/UX Design"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">UI/UX Design</span>
+                <span class="project-tag">Figma</span>
+                <span class="project-tag">Fintech</span>
+              </div>
+              <h3 class="project-title">CoinPay UI/UX Design</h3>
+              <p class="project-description">
+                Designed logos, user interface, and user experience for a
+                fintech platform during internship.
+              </p>
+              <a href="https://coinpay.cr" class="project-link" target="_blank"
+                >Visit Website <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <iframe
+                src="https://kathrynholeton.com"
+                width="100%"
+                height="100%"
+                style="border: none"
+                title="Creative Writing Blog"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">Content Creation</span>
+                <span class="project-tag">Writing</span>
+                <span class="project-tag">Web Design</span>
+              </div>
+              <h3 class="project-title">Creative Writing Blog</h3>
+              <p class="project-description">
+                Authored and published short stories, poems, and articles on a
+                personal blog with Katheryn Holeton.
+              </p>
+              <a
+                href="https://kathrynholeton.com"
+                class="project-link"
+                target="_blank"
+                >Visit Blog <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <iframe
+                src="https://bio.site/edengilbert"
+                width="100%"
+                height="100%"
+                style="border: none"
+                title="Music Production Portfolio"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">Music Production</span>
+                <span class="project-tag">Audio Engineering</span>
+                <span class="project-tag">Composition</span>
+              </div>
+              <h3 class="project-title">Music Production Portfolio</h3>
+              <p class="project-description">
+                Produced, mixed, and mastered tracks using Ableton Live and FL
+                Studio for various clients.
+              </p>
+              <a href="https://bio.site/edengilbert" class="project-link"
+                >View Portfolio <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <img
+                src="images/iot-mobile-analytics.png"
+                alt="IoT Device Controller"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span class="project-tag">Kotlin</span>
+                <span class="project-tag">Lynx.js</span>
+                <span class="project-tag">SQLite</span>
+                <span class="project-tag">Supabase</span>
+              </div>
+              <h3 class="project-title">Android IoT Controller</h3>
+              <p class="project-description">
+                Mobile application for controlling IoT devices using Kotlin and
+                Lynx.js framework with SQLite and Supabase integration for data
+                management.
+              </p>
+              <a href="#" class="project-link"
+                >View Project <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Experience Section -->
     <section class="experience" id="experience">
-        <div class="container">
-            <div class="experience-intro fade-in">
-                <h2>Experience & Education</h2>
-                <p>My professional journey spanning electrical engineering, data science, and Android development.</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025 - Present</div>
-                        <h3 class="timeline-title">Founder, CEO & Electrical Engineer</h3>
-                        <h4 class="timeline-subtitle">Carthigan</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Founded and leading a technology company focused on innovative electrical engineering and software solutions.</li>
-                                <li>Directing product development and strategic vision, overseeing the integration of hardware and software systems.</li>
-                                <li>Driving business growth through technical innovation and strategic partnerships.</li>
-                                <li>Applying electrical engineering expertise to design and deploy scalable IoT and embedded systems.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">September 2025 - Present</div>
-                        <h3 class="timeline-title">Lead Data Scientist</h3>
-                        <h4 class="timeline-subtitle">Googah Goats Limited</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Leading data strategy and analytics initiatives to drive business growth and operational efficiency.</li>
-                                <li>Mentoring junior data scientists and engineers, fostering a culture of technical excellence and innovation.</li>
-                                <li>Architecting and deploying scalable machine learning pipelines for advanced predictive modeling.</li>
-                                <li>Spearheading the development of data-driven products and communicating insights to executive leadership.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025 - September 2025</div>
-                        <h3 class="timeline-title">Junior Data Scientist</h3>
-                        <h4 class="timeline-subtitle">Hammer Uganda Limited & Huawei</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Applied machine learning algorithms to analyze telecommunications data and customer behavior patterns.</li>
-                                <li>Developed predictive models using Python and statistical analysis for network optimization.</li>
-                                <li>Collaborated with cross-functional teams to implement data-driven solutions for business intelligence.</li>
-                                <li>Created data visualization dashboards and reports for stakeholder decision-making.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">April 2025 - Present</div>
-                        <h3 class="timeline-title">Electrical Engineer</h3>
-                        <h4 class="timeline-subtitle">Neriko Electronics, Kampala</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Designed and implemented electrical systems for commercial projects, ensuring safety compliance.</li>
-                                <li>Integrated hardware and software for IoT devices with Linux-based systems.</li>
-                                <li>Set up and maintained PostgreSQL databases for system monitoring and telemetry data.</li>
-                                <li>Conducted troubleshooting and maintenance, improving circuit reliability by 20%.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">July 2023 - Present</div>
-                        <h3 class="timeline-title">FX Trader</h3>
-                        <h4 class="timeline-subtitle">Independent, Remote</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Analyzed market trends and executed forex trades using quantitative and statistical techniques.</li>
-                                <li>Developed algorithmic trading strategies and rigorous risk management systems.</li>
-                                <li>Created database systems to track trading performance, indicators, and portfolio metrics.</li>
-                                <li>Applied statistical analysis to optimize entry, exit, and position-sizing strategies.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022 - Present</div>
-                        <h3 class="timeline-title">Freelance Creative Professional</h3>
-                        <h4 class="timeline-subtitle">Self-Employed, Remote</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Specialized in photography, graphic design, and music production for global clients.</li>
-                                <li>Delivered portraits, logos, marketing collateral, and audio compositions tailored to brand narratives.</li>
-                                <li>Applied UI/UX principles to web design projects for small businesses and startups.</li>
-                                <li>Developed mobile applications using React Native and Android native development.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023 - 2024</div>
-                        <h3 class="timeline-title">Android Developer</h3>
-                        <h4 class="timeline-subtitle">Freelance Projects</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Developed mobile applications using Kotlin and React Native for cross-platform delivery.</li>
-                                <li>Implemented responsive UI components and Material You 3 design systems.</li>
-                                <li>Integrated SQLite and Supabase backends to support real-time analytics.</li>
-                                <li>Optimized application performance through profiling and iterative testing.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022 - Present</div>
-                        <h3 class="timeline-title">UI/UX Designer</h3>
-                        <h4 class="timeline-subtitle">Freelance Projects</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Designed user interfaces and experiences using Figma and Penpot.</li>
-                                <li>Built design systems with accessibility guidelines for mobile and web.</li>
-                                <li>Collaborated with developers to translate prototypes into production-ready interfaces.</li>
-                                <li>Facilitated user testing sessions and iterated on feedback for usability improvements.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023 - 2024</div>
-                        <h3 class="timeline-title">Web Developer</h3>
-                        <h4 class="timeline-subtitle">Freelance Projects</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Developed web applications using Vue.js and Angular.</li>
-                                <li>Implemented RESTful APIs and full-stack integrations with PostgreSQL and Supabase.</li>
-                                <li>Optimized performance and SEO for production deployments.</li>
-                                <li>Collaborated with designers to iterate on UI enhancements for conversion gains.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">August 2023</div>
-                        <h3 class="timeline-title">Front-End Developer Intern</h3>
-                        <h4 class="timeline-subtitle">CoinPay, Costa Rica</h4>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Designed logos, user interfaces, and user experiences for fintech platforms.</li>
-                                <li>Collaborated on database architecture for customer information management.</li>
-                                <li>Utilized Figma and Adobe Photoshop as primary design and prototyping tools.</li>
-                                <li>Delivered handoff documentation to accelerate engineering implementation.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Expected 2027</div>
-                        <h3 class="timeline-title">Associate Degree in Computer Science</h3>
-                        <h4 class="timeline-subtitle">University of the People, USA</h4>
-                        <div class="timeline-description">
-                            <p>Pursuing foundations in algorithms, software engineering, and data science to support scalable application development.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Expected 2027</div>
-                        <h3 class="timeline-title">Diploma in Electrical Engineering</h3>
-                        <h4 class="timeline-subtitle">Uganda Institute of ICT, Uganda</h4>
-                        <div class="timeline-description">
-                            <p>Studying electrical engineering fundamentals, embedded systems, and IoT applications with hands-on circuit design labs.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025</div>
-                        <h3 class="timeline-title">Certificate of Higher Education in Physical Sciences</h3>
-                        <h4 class="timeline-subtitle">Victoria University</h4>
-                        <p class="timeline-description">Completed certificate program in physical sciences covering physics, chemistry, and mathematics fundamentals.</p>
-                    </div>
-                </div>
-                
-                
-                
-            </div>
+      <div class="container">
+        <div class="experience-intro fade-in">
+          <h2>Experience & Education</h2>
+          <p>
+            My professional journey spanning electrical engineering, data
+            science, and Android development.
+          </p>
         </div>
+        <div class="timeline">
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025 - Present</div>
+              <h3 class="timeline-title">Founder, CEO & Electrical Engineer</h3>
+              <h4 class="timeline-subtitle">Carthigan</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Founded and leading a technology company focused on
+                    innovative electrical engineering and software solutions.
+                  </li>
+                  <li>
+                    Directing product development and strategic vision,
+                    overseeing the integration of hardware and software systems.
+                  </li>
+                  <li>
+                    Driving business growth through technical innovation and
+                    strategic partnerships.
+                  </li>
+                  <li>
+                    Applying electrical engineering expertise to design and
+                    deploy scalable IoT and embedded systems.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">September 2025 - Present</div>
+              <h3 class="timeline-title">Lead Data Scientist</h3>
+              <h4 class="timeline-subtitle">Googah Goats Limited</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Leading data strategy and analytics initiatives to drive
+                    business growth and operational efficiency.
+                  </li>
+                  <li>
+                    Mentoring junior data scientists and engineers, fostering a
+                    culture of technical excellence and innovation.
+                  </li>
+                  <li>
+                    Architecting and deploying scalable machine learning
+                    pipelines for advanced predictive modeling.
+                  </li>
+                  <li>
+                    Spearheading the development of data-driven products and
+                    communicating insights to executive leadership.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025 - September 2025</div>
+              <h3 class="timeline-title">Junior Data Scientist</h3>
+              <h4 class="timeline-subtitle">Hammer Uganda Limited & Huawei</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Applied machine learning algorithms to analyze
+                    telecommunications data and customer behavior patterns.
+                  </li>
+                  <li>
+                    Developed predictive models using Python and statistical
+                    analysis for network optimization.
+                  </li>
+                  <li>
+                    Collaborated with cross-functional teams to implement
+                    data-driven solutions for business intelligence.
+                  </li>
+                  <li>
+                    Created data visualization dashboards and reports for
+                    stakeholder decision-making.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">April 2025 - Present</div>
+              <h3 class="timeline-title">Electrical Engineer</h3>
+              <h4 class="timeline-subtitle">Neriko Electronics, Kampala</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Designed and implemented electrical systems for commercial
+                    projects, ensuring safety compliance.
+                  </li>
+                  <li>
+                    Integrated hardware and software for IoT devices with
+                    Linux-based systems.
+                  </li>
+                  <li>
+                    Set up and maintained PostgreSQL databases for system
+                    monitoring and telemetry data.
+                  </li>
+                  <li>
+                    Conducted troubleshooting and maintenance, improving circuit
+                    reliability by 20%.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">July 2023 - Present</div>
+              <h3 class="timeline-title">FX Trader</h3>
+              <h4 class="timeline-subtitle">Independent, Remote</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Analyzed market trends and executed forex trades using
+                    quantitative and statistical techniques.
+                  </li>
+                  <li>
+                    Developed algorithmic trading strategies and rigorous risk
+                    management systems.
+                  </li>
+                  <li>
+                    Created database systems to track trading performance,
+                    indicators, and portfolio metrics.
+                  </li>
+                  <li>
+                    Applied statistical analysis to optimize entry, exit, and
+                    position-sizing strategies.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2022 - Present</div>
+              <h3 class="timeline-title">Freelance Creative Professional</h3>
+              <h4 class="timeline-subtitle">Self-Employed, Remote</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Specialized in photography, graphic design, and music
+                    production for global clients.
+                  </li>
+                  <li>
+                    Delivered portraits, logos, marketing collateral, and audio
+                    compositions tailored to brand narratives.
+                  </li>
+                  <li>
+                    Applied UI/UX principles to web design projects for small
+                    businesses and startups.
+                  </li>
+                  <li>
+                    Developed mobile applications using React Native and Android
+                    native development.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2023 - 2024</div>
+              <h3 class="timeline-title">Android Developer</h3>
+              <h4 class="timeline-subtitle">Freelance Projects</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Developed mobile applications using Kotlin and React Native
+                    for cross-platform delivery.
+                  </li>
+                  <li>
+                    Implemented responsive UI components and Material You 3
+                    design systems.
+                  </li>
+                  <li>
+                    Integrated SQLite and Supabase backends to support real-time
+                    analytics.
+                  </li>
+                  <li>
+                    Optimized application performance through profiling and
+                    iterative testing.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2022 - Present</div>
+              <h3 class="timeline-title">UI/UX Designer</h3>
+              <h4 class="timeline-subtitle">Freelance Projects</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Designed user interfaces and experiences using Figma and
+                    Penpot.
+                  </li>
+                  <li>
+                    Built design systems with accessibility guidelines for
+                    mobile and web.
+                  </li>
+                  <li>
+                    Collaborated with developers to translate prototypes into
+                    production-ready interfaces.
+                  </li>
+                  <li>
+                    Facilitated user testing sessions and iterated on feedback
+                    for usability improvements.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2023 - 2024</div>
+              <h3 class="timeline-title">Web Developer</h3>
+              <h4 class="timeline-subtitle">Freelance Projects</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>Developed web applications using Vue.js and Angular.</li>
+                  <li>
+                    Implemented RESTful APIs and full-stack integrations with
+                    PostgreSQL and Supabase.
+                  </li>
+                  <li>
+                    Optimized performance and SEO for production deployments.
+                  </li>
+                  <li>
+                    Collaborated with designers to iterate on UI enhancements
+                    for conversion gains.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">August 2023</div>
+              <h3 class="timeline-title">Front-End Developer Intern</h3>
+              <h4 class="timeline-subtitle">CoinPay, Costa Rica</h4>
+              <div class="timeline-description">
+                <ul>
+                  <li>
+                    Designed logos, user interfaces, and user experiences for
+                    fintech platforms.
+                  </li>
+                  <li>
+                    Collaborated on database architecture for customer
+                    information management.
+                  </li>
+                  <li>
+                    Utilized Figma and Adobe Photoshop as primary design and
+                    prototyping tools.
+                  </li>
+                  <li>
+                    Delivered handoff documentation to accelerate engineering
+                    implementation.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Expected 2027</div>
+              <h3 class="timeline-title">
+                Associate Degree in Computer Science
+              </h3>
+              <h4 class="timeline-subtitle">University of the People, USA</h4>
+              <div class="timeline-description">
+                <p>
+                  Pursuing foundations in algorithms, software engineering, and
+                  data science to support scalable application development.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Expected 2027</div>
+              <h3 class="timeline-title">Diploma in Electrical Engineering</h3>
+              <h4 class="timeline-subtitle">Uganda Institute of ICT, Uganda</h4>
+              <div class="timeline-description">
+                <p>
+                  Studying electrical engineering fundamentals, embedded
+                  systems, and IoT applications with hands-on circuit design
+                  labs.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025</div>
+              <h3 class="timeline-title">
+                Certificate of Higher Education in Physical Sciences
+              </h3>
+              <h4 class="timeline-subtitle">Victoria University</h4>
+              <p class="timeline-description">
+                Completed certificate program in physical sciences covering
+                physics, chemistry, and mathematics fundamentals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Education Section -->
     <section class="education" id="education">
-        <div class="container">
-            <div class="education-intro fade-in">
-                <h2>Education Highlights</h2>
-                <p>Academic milestones that reinforce my interdisciplinary practice across computer science, electrical engineering, and the physical sciences.</p>
-            </div>
-            <div class="education-grid">
-                <div class="education-card fade-in">
-                    <h3>University of the People</h3>
-                    <h4>Associate Degree in Computer Science</h4>
-                    <time>Expected 2027</time>
-                    <p>Concentrations in algorithms, data structures, software engineering, and applied data science to build scalable digital products.</p>
-                </div>
-                <div class="education-card fade-in">
-                    <h3>Uganda Institute of ICT</h3>
-                    <h4>Diploma in Electrical Engineering</h4>
-                    <time>Expected 2027</time>
-                    <p>Hands-on immersion in circuit design, power systems, embedded electronics, and IoT integration for smart infrastructure.</p>
-                </div>
-                <div class="education-card fade-in">
-                    <h3>Victoria University</h3>
-                    <h4>Certificate of Higher Education in Physical Sciences</h4>
-                    <time>2025</time>
-                    <p>Explored physics, chemistry, and mathematics fundamentals to strengthen analytical problem solving and research methodology.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="education-intro fade-in">
+          <h2>Education Highlights</h2>
+          <p>
+            Academic milestones that reinforce my interdisciplinary practice
+            across computer science, electrical engineering, and the physical
+            sciences.
+          </p>
         </div>
+        <div class="education-grid">
+          <div class="education-card fade-in">
+            <h3>University of the People</h3>
+            <h4>Associate Degree in Computer Science</h4>
+            <time>Expected 2027</time>
+            <p>
+              Concentrations in algorithms, data structures, software
+              engineering, and applied data science to build scalable digital
+              products.
+            </p>
+          </div>
+          <div class="education-card fade-in">
+            <h3>Uganda Institute of ICT</h3>
+            <h4>Diploma in Electrical Engineering</h4>
+            <time>Expected 2027</time>
+            <p>
+              Hands-on immersion in circuit design, power systems, embedded
+              electronics, and IoT integration for smart infrastructure.
+            </p>
+          </div>
+          <div class="education-card fade-in">
+            <h3>Victoria University</h3>
+            <h4>Certificate of Higher Education in Physical Sciences</h4>
+            <time>2025</time>
+            <p>
+              Explored physics, chemistry, and mathematics fundamentals to
+              strengthen analytical problem solving and research methodology.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Languages Section -->
     <section class="languages" id="languages">
-        <div class="container">
-            <div class="fade-in">
-                <h2>Languages</h2>
-                <p>Multilingual communication skills that help me collaborate across teams, clients, and cultures.</p>
-            </div>
-            <div class="languages-grid">
-                <div class="language-card fade-in">
-                    <h3>English</h3>
-                    <span>Fluent</span>
-                </div>
-                <div class="language-card fade-in">
-                    <h3>Luganda</h3>
-                    <span>Fluent</span>
-                </div>
-                <div class="language-card fade-in">
-                    <h3>French</h3>
-                    <span>Intermediate (B2)</span>
-                </div>
-            </div>
+      <div class="container">
+        <div class="fade-in">
+          <h2>Languages</h2>
+          <p>
+            Multilingual communication skills that help me collaborate across
+            teams, clients, and cultures.
+          </p>
         </div>
+        <div class="languages-grid">
+          <div class="language-card fade-in">
+            <h3>English</h3>
+            <span>Fluent</span>
+          </div>
+          <div class="language-card fade-in">
+            <h3>Luganda</h3>
+            <span>Fluent</span>
+          </div>
+          <div class="language-card fade-in">
+            <h3>French</h3>
+            <span>Intermediate (B2)</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="fade-in">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <h3>Let's Connect</h3>
-                    <p>I'm currently open to opportunities in electrical engineering, data science, Android development, and UI/UX design. Reach out if you'd like to work together!</p>
-                    <div class="contact-links">
-                        <a href="mailto:edengilbertus@proton.me" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>edengilbertus@proton.me</span>
-                        </a>
-                        <a href="tel:+256703055006" class="contact-link">
-                            <i class="fas fa-phone"></i>
-                            <span>+256 703 055 006</span>
-                        </a>
-                        <a href="https://linkedin.com/in/edengilbert" class="contact-link" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <span>linkedin.com/in/edengilbert</span>
-                        </a>
-                        <a href="https://github.com/edengilbertus" class="contact-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                            <span>github.com/edengilbertus</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form fade-in">
-                    <h3>Send a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
+      <div class="container">
+        <h2 class="fade-in">Get In Touch</h2>
+        <div class="contact-content">
+          <div class="contact-info fade-in">
+            <h3>Let's Connect</h3>
+            <p>
+              I'm currently open to opportunities in electrical engineering,
+              data science, Android development, and UI/UX design. Reach out if
+              you'd like to work together!
+            </p>
+            <div class="contact-links">
+              <a href="mailto:edengilbertus@proton.me" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                <span>edengilbertus@proton.me</span>
+              </a>
+              <a href="tel:+256703055006" class="contact-link">
+                <i class="fas fa-phone"></i>
+                <span>+256 703 055 006</span>
+              </a>
+              <a
+                href="https://linkedin.com/in/edengilbert"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin"></i>
+                <span>linkedin.com/in/edengilbert</span>
+              </a>
+              <a
+                href="https://github.com/edengilbertus"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i>
+                <span>github.com/edengilbertus</span>
+              </a>
             </div>
+          </div>
+          <div class="contact-form fade-in">
+            <h3>Send a Message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="https://edengilbert.me/" class="logo">Eden<span>Gilbert</span></a>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/edengilbert" class="social-link" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/edengilbertus" class="social-link" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://bio.site/edengilbert" class="social-link" target="_blank">
-                        <i class="fas fa-globe"></i>
-                    </a>
-                    <a href="mailto:edengilbertus@proton.me" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-                <p class="copyright">&copy; <span id="currentYear">2025</span> Eden Gilbert Kiseka. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <a href="https://edengilbert.me/" class="logo"
+            >Eden<span>Gilbert</span></a
+          >
+          <div class="social-links">
+            <a
+              href="https://linkedin.com/in/edengilbert"
+              class="social-link"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/edengilbertus"
+              class="social-link"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://bio.site/edengilbert"
+              class="social-link"
+              target="_blank"
+            >
+              <i class="fas fa-globe"></i>
+            </a>
+            <a href="mailto:edengilbertus@proton.me" class="social-link">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+          <p class="copyright">
+            &copy; <span id="currentYear">2025</span> Eden Gilbert Kiseka. All
+            rights reserved.
+          </p>
         </div>
+      </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // Initialize Mermaid
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'base',
-            themeVariables: {
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '14px'
-            }
-        });
 
-        // Set current year in copyright
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Navigation toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const closeNav = document.querySelector('.close-nav');
-        const nav = document.querySelector('nav');
+      // Set current year in copyright
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
 
-        navToggle.addEventListener('click', () => {
-            nav.classList.add('active');
-        });
+      // Navigation toggle
+      const navToggle = document.querySelector(".nav-toggle");
+      const closeNav = document.querySelector(".close-nav");
+      const nav = document.querySelector("nav");
 
-        closeNav.addEventListener('click', () => {
-            nav.classList.remove('active');
-        });
+      navToggle.addEventListener("click", () => {
+        nav.classList.add("active");
+      });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile nav if open
-                    nav.classList.remove('active');
-                    
-                    // Scroll to target
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active nav link
-                    document.querySelectorAll('nav a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
+      closeNav.addEventListener("click", () => {
+        nav.classList.remove("active");
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            // Close mobile nav if open
+            nav.classList.remove("active");
+
+            // Scroll to target
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
             });
-        });
 
-        // Sticky header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            // Update active nav link based on scroll position
-            updateActiveNavLink();
+            // Update active nav link
+            document.querySelectorAll("nav a").forEach((link) => {
+              link.classList.remove("active");
+            });
+            this.classList.add("active");
+          }
         });
+      });
+
+      // Sticky header
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
 
         // Update active nav link based on scroll position
-        function updateActiveNavLink() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = '#' + section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === currentSection) {
-                    link.classList.add('active');
-                }
-            });
-        }
+        updateActiveNavLink();
+      });
 
-        // Reveal animations on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+      // Update active nav link based on scroll position
+      function updateActiveNavLink() {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav a");
 
-        // Contact form handling
-        const contactForm = document.getElementById('contactForm');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // In a real implementation, you would send this data to a server
-                // For now, we'll just show a success message
-                const formData = new FormData(contactForm);
-                const formObject = Object.fromEntries(formData);
-                
-                // For demo purposes - in production this would be an AJAX call
-                console.log('Form submitted:', formObject);
-                
-                // Reset the form
-                contactForm.reset();
-                
-                // Show success message (in a real implementation)
-                alert('Thank you for your message! I will get back to you soon.');
-            });
-        }
+        let currentSection = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+
+          if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+          ) {
+            currentSection = "#" + section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === currentSection) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      // Reveal animations on scroll
+      const fadeElements = document.querySelectorAll(".fade-in");
+
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+
+        fadeElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+
+          if (elementTop < windowHeight - 100) {
+            element.classList.add("visible");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      // Contact form handling
+      const contactForm = document.getElementById("contactForm");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // In a real implementation, you would send this data to a server
+          // For now, we'll just show a success message
+          const formData = new FormData(contactForm);
+          const formObject = Object.fromEntries(formData);
+
+          // For demo purposes - in production this would be an AJAX call
+          console.log("Form submitted:", formObject);
+
+          // Reset the form
+          contactForm.reset();
+
+          // Show success message (in a real implementation)
+          alert("Thank you for your message! I will get back to you soon.");
+        });
+      }
     </script>
-</body>
+  </body>
 </html>
