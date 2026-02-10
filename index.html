@@ -332,6 +332,34 @@
         background-size: 40px 40px;
       }
 
+      /* ===== CREATIVE WORK ===== */
+      .creative-section {
+        padding: 6rem 1.5rem;
+        max-width: 1280px; margin: 0 auto;
+        border-top: 1px solid var(--charcoal-10);
+      }
+      .creative-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1px; background: var(--charcoal-10);
+        border: 1px solid var(--charcoal-10);
+        margin-top: 3rem;
+      }
+      .creative-card {
+        background: var(--cream); padding: 2.5rem;
+      }
+      .creative-card h3 {
+        font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;
+      }
+      .creative-card .creative-handle {
+        font-size: 0.75rem; font-weight: 600;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--charcoal-40); margin-bottom: 0.75rem;
+      }
+      .creative-card p {
+        font-size: 0.9rem; font-weight: 300;
+        color: rgba(42,42,42,0.7); line-height: 1.6;
+      }
+
       /* ===== EDUCATION ===== */
       .education-section {
         padding: 8rem 1.5rem;
@@ -512,7 +540,7 @@
         <span class="hero-badge">Eden Gilbert Kiseka</span>
         <h1 id="hero-headline">Android Developer.<br/>Electronics Engineer.</h1>
         <p class="hero-sub">From language learning apps to semiconductor research. Building software and hardware that powers East Africa.</p>
-        <a href="Eden Gilbert Resume.pdf" download class="hero-cta">Download Resume <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+        <a href="UI & UX Resume.pdf" download class="hero-cta">Download Resume <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
       </div>
       <div class="hero-bg"></div>
     </section>
@@ -530,63 +558,38 @@
           </div>
         </div>
         <div class="philosophy-text">
-          <p><strong>Eden Gilbert Kiseka</strong> is an Android Developer and Electronics &amp; Electrical Engineer with 6+ years of experience spanning native mobile development, embedded systems, and data engineering.</p>
-          <p>Founder of <strong>Carthigan</strong>, building production Android apps (Gandalingo, Ga) with Kotlin and Jetpack Compose. Expertise in hardware-software integration, IoT systems, and circuit design using Logisim and Altium.</p>
-          <p>Proficient in multiple languages (English, Luganda, French), delivering culturally resonant designs and data-driven solutions for fintech and telecommunications.</p>
+          <p><strong>Eden Gilbert Kiseka</strong> is a Product Designer, Developer, and Creative Technologist based in Kampala, Uganda. Design is storytelling—photography teaches light and composition, music production teaches rhythm and pacing, screenwriting teaches character arcs and narrative structure.</p>
+          <p>Founder of <strong>Carthigan Inc.</strong>, where he leads complete product development for Gandalingo—a Luganda language learning app serving 500+ active users—from user research through pixel-perfect implementation in Kotlin and Jetpack Compose.</p>
+          <p>Proficient in English, Luganda, and French. Designs with empathy, builds with precision, and creates experiences that feel alive.</p>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
     <section class="skills-section" id="skills">
-      <div class="skills-label gsap-hidden">Technical Skills</div>
+      <div class="skills-label gsap-hidden">Skills</div>
       <div class="skills-grid">
         <div class="skill-group gsap-hidden">
-          <h3>Mobile Development</h3>
+          <h3>Design</h3>
           <div class="skill-tags">
-            <span class="skill-tag">Kotlin</span><span class="skill-tag">Java</span><span class="skill-tag">Jetpack Compose</span><span class="skill-tag">Android Native</span><span class="skill-tag">React Native</span><span class="skill-tag">Flutter</span><span class="skill-tag">Swift (iOS)</span><span class="skill-tag">Lynx.js</span><span class="skill-tag">Material Design 3</span><span class="skill-tag">MVVM</span><span class="skill-tag">Coroutines</span><span class="skill-tag">Flow</span>
+            <span class="skill-tag">Figma</span><span class="skill-tag">OnCapture</span><span class="skill-tag">Adobe Photoshop</span><span class="skill-tag">User Research</span><span class="skill-tag">Wireframing</span><span class="skill-tag">Prototyping</span><span class="skill-tag">Brand Design</span><span class="skill-tag">Accessibility (WCAG)</span>
           </div>
         </div>
         <div class="skill-group gsap-hidden">
-          <h3>Programming Languages</h3>
+          <h3>Development</h3>
           <div class="skill-tags">
-            <span class="skill-tag">Python</span><span class="skill-tag">Rust</span><span class="skill-tag">Go</span><span class="skill-tag">C++</span><span class="skill-tag">C</span><span class="skill-tag">Kotlin</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">SQL</span><span class="skill-tag">Bash</span>
+            <span class="skill-tag">Kotlin</span><span class="skill-tag">Java</span><span class="skill-tag">Swift</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Python</span><span class="skill-tag">C/C++</span>
           </div>
         </div>
         <div class="skill-group gsap-hidden">
-          <h3>Data Science &amp; ML</h3>
+          <h3>Frameworks</h3>
           <div class="skill-tags">
-            <span class="skill-tag">TensorFlow</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">Statistical Analysis</span><span class="skill-tag">Data Visualization</span><span class="skill-tag">ETL Pipelines</span>
+            <span class="skill-tag">Jetpack Compose</span><span class="skill-tag">React Native</span><span class="skill-tag">Svelte</span><span class="skill-tag">Angular</span><span class="skill-tag">Material Design 3</span>
           </div>
         </div>
         <div class="skill-group gsap-hidden">
-          <h3>Web Development</h3>
+          <h3>Creative</h3>
           <div class="skill-tags">
-            <span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">Vue.js</span><span class="skill-tag">Angular</span><span class="skill-tag">Node.js</span><span class="skill-tag">RESTful APIs</span><span class="skill-tag">SEO Optimization</span>
-          </div>
-        </div>
-        <div class="skill-group gsap-hidden">
-          <h3>Databases</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">PostgreSQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">Supabase</span><span class="skill-tag">Firebase</span>
-          </div>
-        </div>
-        <div class="skill-group gsap-hidden">
-          <h3>Design &amp; UX</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Figma</span><span class="skill-tag">Penpot</span><span class="skill-tag">Adobe Photoshop</span><span class="skill-tag">UI/UX Design</span><span class="skill-tag">Responsive Design Systems</span><span class="skill-tag">Accessibility (WCAG)</span>
-          </div>
-        </div>
-        <div class="skill-group gsap-hidden">
-          <h3>Electronics &amp; EE</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Logisim</span><span class="skill-tag">Circuit Design</span><span class="skill-tag">IoT Integration</span><span class="skill-tag">Hardware/Software Integration</span><span class="skill-tag">Microcontroller Programming</span><span class="skill-tag">Arduino</span><span class="skill-tag">MATLAB</span><span class="skill-tag">PSpice</span><span class="skill-tag">Altium Designer</span><span class="skill-tag">AutoCAD Electrical</span>
-          </div>
-        </div>
-        <div class="skill-group gsap-hidden">
-          <h3>Tools &amp; Deployment</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Android Studio</span><span class="skill-tag">Xcode</span><span class="skill-tag">IntelliJ IDEA</span><span class="skill-tag">Eclipse</span><span class="skill-tag">NetBeans</span><span class="skill-tag">VS Code</span><span class="skill-tag">Git</span><span class="skill-tag">Docker</span><span class="skill-tag">Heroku</span><span class="skill-tag">Gradle</span>
+            <span class="skill-tag">Photography</span><span class="skill-tag">Music Production</span><span class="skill-tag">Screenwriting</span><span class="skill-tag">Visual Storytelling</span>
           </div>
         </div>
       </div>
@@ -634,69 +637,53 @@
       <div class="exp-label gsap-hidden">Experience</div>
 
       <div class="exp-item gsap-hidden">
-        <div class="exp-date">2025 – Present</div>
+        <div class="exp-date">Nov 2025 – Present</div>
         <div class="exp-content">
-          <h3>Founder, CEO &amp; Electrical Engineer</h3>
-          <h4>Carthigan</h4>
+          <h3>Product Designer &amp; Developer</h3>
+          <h4>Carthigan Inc., Kampala</h4>
           <ul>
-            <li>Founded technology company focused on electrical engineering and software solutions.</li>
-            <li>Build native Android applications (Gandalingo, Ga) using Kotlin and Jetpack Compose.</li>
-            <li>Direct hardware-software integration for IoT and embedded systems.</li>
-            <li>Drive business growth through technical innovation and strategic partnerships.</li>
+            <li>Founded venture creating technology celebrating African languages and culture.</li>
+            <li>Lead complete product development for Gandalingo, a Luganda language learning app serving 500+ active users.</li>
+            <li>Conducted user research with 30+ learners, then designed the entire UX in Figma from wireframes through high-fidelity prototypes.</li>
+            <li>Created a custom Material Design 3 system with illustrations celebrating Ugandan culture, ensuring WCAG 2.1 accessibility.</li>
+            <li>Implemented every design pixel-perfectly in Kotlin and Jetpack Compose, maintaining 60fps animations. Users rate the app 4.8/5.0.</li>
           </ul>
         </div>
       </div>
 
       <div class="exp-item gsap-hidden">
-        <div class="exp-date">Sep 2025 – Present</div>
+        <div class="exp-date">Oct 2025 – Present</div>
         <div class="exp-content">
-          <h3>Lead Data Scientist</h3>
-          <h4>Googah Goats Limited</h4>
+          <h3>Lead Backend Engineer</h3>
+          <h4>Googah Goats Limited, Kampala</h4>
           <ul>
-            <li>Architect scalable ML pipelines and ETL infrastructure for predictive modeling.</li>
-            <li>Deploy data-driven products and communicate insights to executive leadership.</li>
-            <li>Mentor junior engineers and foster culture of technical excellence.</li>
+            <li>Architect and manage backend infrastructure using Google AppScript and JavaScript.</li>
+            <li>Designed data architecture using spreadsheet-based systems with custom automation scripts.</li>
+            <li>Work closely with non-technical stakeholders to translate needs into functional solutions.</li>
           </ul>
         </div>
       </div>
 
       <div class="exp-item gsap-hidden">
-        <div class="exp-date">2025 – Sep 2025</div>
+        <div class="exp-date">Oct 2024 – Sep 2025</div>
         <div class="exp-content">
-          <h3>Junior Data Scientist</h3>
-          <h4>Hammer Uganda Limited &amp; Huawei</h4>
-          <ul>
-            <li>Applied ML algorithms to telecommunications data and customer behavior analysis.</li>
-            <li>Developed predictive models using Python, TensorFlow, and statistical analysis.</li>
-            <li>Created data visualization dashboards for network optimization and stakeholder reporting.</li>
-            <li>Collaborated with cross-functional teams on business intelligence solutions.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item gsap-hidden">
-        <div class="exp-date">Apr – Dec 2025</div>
-        <div class="exp-content">
-          <h3>Electrical Engineer</h3>
+          <h3>Technical Instructor</h3>
           <h4>Neriko Electronics, Kampala</h4>
           <ul>
-            <li>Designed electrical systems for commercial IoT projects ensuring safety compliance.</li>
-            <li>Integrated hardware/software for Linux-based embedded systems.</li>
-            <li>Maintained PostgreSQL databases for system monitoring and telemetry.</li>
-            <li>Improved circuit reliability by 20% using Logisim for prototyping and troubleshooting.</li>
+            <li>Taught embedded systems programming, developing curriculum covering microcontroller programming in C and C++ using Arduino.</li>
+            <li>Designed hands-on projects demonstrating IoT applications and created all educational materials.</li>
           </ul>
         </div>
       </div>
 
       <div class="exp-item gsap-hidden">
-        <div class="exp-date">Jul 2023 – Present</div>
+        <div class="exp-date">2024 – Dec 2024</div>
         <div class="exp-content">
-          <h3>FX Trader</h3>
-          <h4>Independent, Remote</h4>
+          <h3>Data Analyst</h3>
+          <h4>Hammer Uganda Limited, Kampala</h4>
           <ul>
-            <li>Develop algorithmic trading strategies using quantitative analysis and Rust/Python.</li>
-            <li>Build database systems for tracking performance and market indicators.</li>
-            <li>Apply statistical analysis and ML for risk management and optimization.</li>
+            <li>Analyzed radio frequency signals for telecommunications network expansion under contracts with Huawei and Lyca Mobile.</li>
+            <li>Developed Python scripts to process RF data and create visualizations showing signal strength patterns and coverage gaps.</li>
           </ul>
         </div>
       </div>
@@ -704,26 +691,25 @@
       <div class="exp-item gsap-hidden">
         <div class="exp-date">2023 – 2024</div>
         <div class="exp-content">
-          <h3>Android Developer &amp; UI/UX Designer</h3>
+          <h3>Designer &amp; Mobile Developer</h3>
           <h4>Freelance, Remote</h4>
           <ul>
-            <li>Developed cross-platform apps with Kotlin, Java, React Native, and Jetpack Compose.</li>
-            <li>Implemented Material Design 3 and responsive UI components.</li>
-            <li>Designed interfaces in Figma and Penpot with accessibility guidelines.</li>
-            <li>Integrated SQLite, Supabase, and Firebase backends with real-time sync.</li>
+            <li>Delivered end-to-end design and development for three startup clients across fintech, e-commerce, and hospitality.</li>
+            <li>Conducted discovery workshops and user research, created complete design systems in Figma, designed logos and brand identities.</li>
+            <li>Implemented designs as production Android and React Native applications.</li>
           </ul>
         </div>
       </div>
 
       <div class="exp-item gsap-hidden">
-        <div class="exp-date">Aug 2023</div>
+        <div class="exp-date">Aug – Dec 2023</div>
         <div class="exp-content">
-          <h3>Front-End Developer Intern</h3>
+          <h3>UI/UX Designer &amp; Developer</h3>
           <h4>CoinPay, Costa Rica</h4>
           <ul>
-            <li>Designed UI/UX for fintech platforms using Figma and Adobe Photoshop.</li>
-            <li>Developed mobile applications using React Native and Android native (Kotlin).</li>
-            <li>Collaborated on database architecture for customer information management.</li>
+            <li>Designed user interfaces for a fintech payment platform, creating high-fidelity mockups and interactive prototypes in Figma.</li>
+            <li>Designed the complete user flow for payment processing, reducing checkout friction through iterative user testing.</li>
+            <li>Designed logos and brand assets, then implemented designs in React Native and native Android.</li>
           </ul>
         </div>
       </div>
@@ -735,10 +721,32 @@
         <div class="vision-icon gsap-hidden">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
         </div>
-        <h2 class="gsap-hidden">Building the Future.</h2>
-        <p class="gsap-hidden">From Gandalingo to semiconductor research. Currently pursuing degrees in Computer Science and Electrical Engineering while shipping production apps at Carthigan.</p>
+        <h2 class="gsap-hidden">Design is Storytelling.</h2>
+        <p class="gsap-hidden">Photography teaches light and composition. Music production teaches rhythm and pacing. Screenwriting teaches character arcs. All of it informs how I design user experiences—not as functional flows, but as meaningful journeys.</p>
       </div>
       <div class="vision-grid-bg"></div>
+    </section>
+
+    <!-- Creative Work -->
+    <section class="creative-section">
+      <div class="exp-label gsap-hidden">Creative Work</div>
+      <div class="creative-grid">
+        <div class="creative-card gsap-hidden">
+          <h3>Photography</h3>
+          <div class="creative-handle">@edens.creative</div>
+          <p>Product photography for commercial clients and portrait work capturing authentic moments. Complete projects from concept through post-processing—lighting, composition, and color grading to tell visual stories. This directly informs my approach to UI design: visual hierarchy, negative space, and emotional impact through imagery.</p>
+        </div>
+        <div class="creative-card gsap-hidden">
+          <h3>Music Production</h3>
+          <div class="creative-handle">@edengilbert.dnb</div>
+          <p>Electronic music specializing in Drum &amp; Bass, from sound design through mixing and mastering. Music production teaches rhythm, pacing, and building emotional arcs—principles applied directly to interaction design, micro-animations, and user journey mapping.</p>
+        </div>
+        <div class="creative-card gsap-hidden">
+          <h3>Screenwriting</h3>
+          <div class="creative-handle">Creative Writing</div>
+          <p>Screenplays and creative narratives focusing on character development, story structure, and dialogue. Every user journey is a story with characters (users), conflicts (pain points), and resolutions (solutions). Narrative thinking helps create more compelling user experiences.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Education -->
@@ -747,19 +755,19 @@
       <div class="edu-grid">
         <div class="edu-card gsap-hidden">
           <h3>University of the People</h3>
-          <h4>Associate Degree in Computer Science</h4>
-          <time>Expected 2027</time>
-          <p>Concentrations in algorithms, data structures, and software engineering.</p>
+          <h4>Associate Degree in Electrical Engineering &amp; Computer Science</h4>
+          <time>2024 – 2027</time>
+          <p>Algorithms, data structures, and software engineering.</p>
         </div>
         <div class="edu-card gsap-hidden">
           <h3>Uganda Institute of ICT</h3>
-          <h4>Diploma in Electrical Engineering</h4>
-          <time>Expected 2027</time>
+          <h4>Diploma in Electronics &amp; Electrical Engineering</h4>
+          <time>2024 – 2027</time>
           <p>Embedded systems, circuit design, and IoT applications.</p>
         </div>
         <div class="edu-card gsap-hidden">
           <h3>Victoria University</h3>
-          <h4>Certificate in Physical Sciences</h4>
+          <h4>Certificate of Higher Education in Physical Sciences</h4>
           <time>2025</time>
           <p>Physics, chemistry, and mathematics fundamentals.</p>
         </div>
