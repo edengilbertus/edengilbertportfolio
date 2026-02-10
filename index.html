@@ -108,6 +108,21 @@
         max-width: 640px; margin: 2rem auto 0;
         line-height: 1.7; opacity: 0;
       }
+      .hero-cta {
+        display: inline-flex; align-items: center; gap: 0.75rem;
+        margin-top: 2.5rem;
+        padding: 0.75rem 2rem;
+        background: var(--charcoal); color: var(--cream);
+        border-radius: 50px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.8rem; font-weight: 600;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        transition: opacity 0.3s, transform 0.3s;
+        opacity: 0;
+      }
+      .hero-cta:hover { opacity: 0.85 !important; color: var(--cream); transform: translateY(-2px); }
+      .hero-cta svg { transition: transform 0.3s; }
+      .hero-cta:hover svg { transform: translateY(2px); }
       .hero-bg {
         position: absolute; inset: 0; z-index: -1;
         opacity: 0.03; pointer-events: none;
@@ -429,10 +444,12 @@
       .footer-left p { font-size: 0.8rem; color: var(--charcoal-60); margin-top: 0.25rem; }
       .footer-nav { display: flex; gap: 1.5rem; }
       .footer-nav a {
+        display: inline-flex; align-items: center; gap: 0.4rem;
         font-size: 0.85rem; font-weight: 500;
         color: var(--charcoal-60); transition: color 0.3s;
       }
-      .footer-nav a:hover { color: var(--charcoal); opacity: 1; }
+      .footer-nav a svg { opacity: 0.5; transition: opacity 0.3s; }
+      .footer-nav a:hover svg { opacity: 1; }
       .footer-right { text-align: right; }
       .footer-location {
         font-size: 0.8rem; font-weight: 500;
@@ -495,6 +512,7 @@
         <span class="hero-badge">Eden Gilbert Kiseka</span>
         <h1 id="hero-headline">Android Developer.<br/>Electronics Engineer.</h1>
         <p class="hero-sub">From language learning apps to semiconductor research. Building software and hardware that powers East Africa.</p>
+        <a href="Eden Gilbert Resume.pdf" download class="hero-cta">Download Resume <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
       </div>
       <div class="hero-bg"></div>
     </section>
@@ -600,25 +618,6 @@
         </div>
         <div class="project-card">
           <div>
-            <span class="project-status">Data Science</span>
-            <h3>Forex Insights Dashboard</h3>
-            <p class="tagline">Markets, visualized.</p>
-            <p class="desc">Data visualization dashboard for forex market analysis using Python, Pandas, and statistical modeling techniques.</p>
-            <a href="https://forex-insights.vercel.app/" class="learn-more" target="_blank">Learn more →</a>
-          </div>
-          <a href="https://forex-insights.vercel.app/" class="project-action" target="_blank">View Dashboard <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-        <div class="project-card">
-          <div>
-            <span class="project-status">Mobile</span>
-            <h3>Data-Driven Analytics App</h3>
-            <p class="tagline">ML meets mobile.</p>
-            <p class="desc">Cross-platform mobile application using Kotlin and React Native with machine learning models for data analysis and predictive modeling.</p>
-          </div>
-          <span class="project-action">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-        <div class="project-card">
-          <div>
             <span class="project-status">Fintech</span>
             <h3>CoinPay UI/UX</h3>
             <p class="tagline">Fintech, designed.</p>
@@ -626,15 +625,6 @@
             <a href="https://coinpay.cr" class="learn-more" target="_blank">Learn more →</a>
           </div>
           <a href="https://coinpay.cr" class="project-action" target="_blank">Visit Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-        <div class="project-card">
-          <div>
-            <span class="project-status">IoT</span>
-            <h3>Android IoT Controller</h3>
-            <p class="tagline">Hardware meets software.</p>
-            <p class="desc">Mobile application for controlling IoT devices using Kotlin and Lynx.js framework with SQLite and Supabase integration.</p>
-          </div>
-          <span class="project-action">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </div>
     </section>
@@ -851,10 +841,10 @@
           <p>Android Developer &amp; Electronics Engineer</p>
         </div>
         <div class="footer-nav">
-          <a href="https://linkedin.com/in/edengilbert" target="_blank">LinkedIn</a>
-          <a href="https://github.com/edengilbertus" target="_blank">GitHub</a>
-          <a href="https://bio.site/edengilbert" target="_blank">Bio</a>
-          <a href="mailto:edengilbertus@proton.me">Email</a>
+          <a href="https://linkedin.com/in/edengilbert" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
+          <a href="https://github.com/edengilbertus" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub</a>
+          <a href="https://bio.site/edengilbert" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> Bio</a>
+          <a href="mailto:edengilbertus@proton.me"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg> Email</a>
         </div>
         <div class="footer-right">
           <div class="footer-location">Kampala <span class="dot">•</span> Earth</div>
@@ -917,6 +907,9 @@
 
       // Subtitle
       heroTl.fromTo('.hero-sub', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.3');
+
+      // Resume CTA
+      heroTl.fromTo('.hero-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.2');
 
       // Parallax bg
       gsap.to('.hero-bg', { yPercent: 30, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
