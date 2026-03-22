@@ -558,8 +558,8 @@
         <nav>
           <button class="close-nav" aria-label="Close menu">&times;</button>
           <a href="#about">About</a>
-          <a href="#skills">Skills</a>
           <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
           <a href="#contact">Contact</a>
@@ -604,6 +604,46 @@
           <p><strong>Eden Gilbert Kiseka</strong> is a Native Mobile Developer, Product Designer, and Embedded Systems Developer based in Kampala, Uganda. Professional experience building production apps for Android (Kotlin/Java) and iOS (Swift), designing user experiences in Figma, and teaching embedded systems programming.</p>
           <p>Proficient in English, Luganda, and French. Designs with empathy, builds with precision, and creates experiences that feel alive.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section class="projects-section" id="work">
+      <div class="projects-label gsap-hidden">Featured Project</div>
+      <div class="project-grid featured-grid">
+        <article class="project-card featured-card gsap-hidden">
+          <div>
+            <span class="project-status">Research Infrastructure</span>
+            <h3>kore</h3>
+            <p class="tagline">Portable Schrödinger-Poisson solver for scientific computing workflows.</p>
+            <p class="desc">
+              kore is a portable Schrödinger-Poisson pseudo-spectral kernel built in Rust for fuzzy dark matter simulation workloads. It combines split-step Fourier evolution, RustFFT, Rayon threading, a stable C ABI, and <code>pykore</code> PyO3/NumPy bindings to bridge the gap between slow Python solvers and monolithic HPC codebases.
+            </p>
+            <div class="project-highlights">
+              <span class="skill-tag">Rust</span>
+              <span class="skill-tag">PyO3</span>
+              <span class="skill-tag">C ABI</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">FFT Kernel</span>
+              <span class="skill-tag">GitHub Actions</span>
+            </div>
+          </div>
+          <div>
+            <p class="desc">
+              Verified with Rust integration tests, strict C11 smoke builds, generated-header drift checks, and Python tests covering in-place complex128 stepping with GIL release on the compute path.
+            </p>
+            <div class="project-actions">
+              <a href="https://github.com/edengilbertus/kore" target="_blank" class="project-action">
+                View Repository
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="assets/kore.pdf" target="_blank" class="project-action">
+                Read Paper (PDF)
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -652,46 +692,6 @@
             <span class="skill-tag">Photography</span><span class="skill-tag">Music Production</span><span class="skill-tag">Screenwriting</span><span class="skill-tag">Visual Storytelling</span>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Featured Project -->
-    <section class="projects-section" id="work">
-      <div class="projects-label gsap-hidden">Featured Project</div>
-      <div class="project-grid featured-grid">
-        <article class="project-card featured-card gsap-hidden">
-          <div>
-            <span class="project-status">Research Infrastructure</span>
-            <h3>kore</h3>
-            <p class="tagline">Portable Schrödinger-Poisson solver for scientific computing workflows.</p>
-            <p class="desc">
-              kore is a portable Schrödinger-Poisson pseudo-spectral kernel built in Rust for fuzzy dark matter simulation workloads. It combines split-step Fourier evolution, RustFFT, Rayon threading, a stable C ABI, and <code>pykore</code> PyO3/NumPy bindings to bridge the gap between slow Python solvers and monolithic HPC codebases.
-            </p>
-            <div class="project-highlights">
-              <span class="skill-tag">Rust</span>
-              <span class="skill-tag">PyO3</span>
-              <span class="skill-tag">C ABI</span>
-              <span class="skill-tag">NumPy</span>
-              <span class="skill-tag">FFT Kernel</span>
-              <span class="skill-tag">GitHub Actions</span>
-            </div>
-          </div>
-          <div>
-            <p class="desc">
-              Verified with Rust integration tests, strict C11 smoke builds, generated-header drift checks, and Python tests covering in-place complex128 stepping with GIL release on the compute path.
-            </p>
-            <div class="project-actions">
-              <a href="https://github.com/edengilbertus/kore" target="_blank" class="project-action">
-                View Repository
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-              <a href="assets/kore.pdf" target="_blank" class="project-action">
-                Read Paper (PDF)
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
