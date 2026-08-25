@@ -1,0 +1,255 @@
+\documentclass[11pt,a4paper]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage[top=1.8cm, bottom=1.8cm, left=2cm, right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	COLORS & STYLES
+%----------------------------------------------------------------------------------------
+\definecolor{accentred}{HTML}{E03C31}
+\definecolor{darktext}{HTML}{1A1A1A}
+\definecolor{graytext}{HTML}{666666}
+
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentred,
+    urlcolor=accentred,
+    pdftitle={Eden Gilbert Kiseka - Resume},
+    pdfauthor={Eden Gilbert Kiseka}
+}
+
+% Section Styling
+\titleformat{\section}
+  {\vspace{1em}\large\bfseries\color{darktext}} % format
+  {} % label
+  {0em} % sep
+  {} % before
+  [\vspace{-0.4em}\rule{\textwidth}{0.4pt}] % after (line)
+
+% Itemize settings
+\setlist[itemize]{leftmargin=1.5em, nosep, topsep=0.2em, itemsep=0.2em}
+
+% Job Entry Command
+\newcommand{\jobentry}[5]{
+    \noindent
+    \begin{minipage}[t]{0.75\textwidth}
+        \textbf{\color{accentred} #1}
+    \end{minipage}%
+    \begin{minipage}[t]{0.25\textwidth}
+        \raggedleft
+        \color{graytext}\small #2
+    \end{minipage}\\[0.1em]
+    \noindent {\color{graytext} #3} \hfill {\color{graytext}\footnotesize #4} \\[0.3em]
+    \noindent \small #5
+    \vspace{1.2em}
+}
+
+% Project Entry Command
+\newcommand{\projectentry}[4]{
+    \noindent
+    \begin{minipage}[t]{0.75\textwidth}
+        \textbf{\color{accentred} #1}
+    \end{minipage}%
+    \begin{minipage}[t]{0.25\textwidth}
+        \raggedleft
+        \color{graytext}\small \href{#4}{View Repository}
+    \end{minipage}\\[0.1em]
+    \noindent {\color{graytext}\small #2} \\[0.3em]
+    \noindent \small #3
+    \vspace{1.2em}
+}
+
+\newcommand{\skillentry}[2]{
+    \noindent \textbf{#1} \hfill \color{graytext} #2 \\
+}
+
+\begin{document}
+
+%--- HEADER ---
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+    {\Huge \bfseries \color{darktext} Eden Gilbert Kiseka} \\[0.4em]
+    {\Large \bfseries \color{accentred} Software Engineer}
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+    \raggedleft \small \color{darktext}
+    \faPhone \hspace{0.5em} +256 703 055 006 \\
+    \faEnvelope \hspace{0.5em} \href{mailto:edengilbertus@proton.me}{edengilbertus@proton.me} \\
+    \faGlobe \hspace{0.5em} \href{https://edengilbert.is-a.dev}{edengilbert.is-a.dev} \\
+    \faLinkedin \hspace{0.5em} \href{https://linkedin.com/in/edengilbert}{edengilbert} \\
+    \faGithub \hspace{0.5em} \href{https://github.com/edengilbertus}{edengilbertus} \\
+    \faMapMarker \hspace{0.5em} Kampala, Uganda
+\end{minipage}
+
+\vspace{1.5em}
+
+%--- EXPERIENCE ---
+\section*{EXPERIENCE}
+
+\jobentry{Backend Engineer}{Oct 2025 -- Present}
+{Googah Goats Limited}{Kampala, Uganda}
+{
+    \begin{itemize}
+        \item Architect backend infrastructure using Google AppScript and JavaScript for startup operations.
+        \item Design data workflows and automation systems connecting spreadsheet-based backend to frontend applications.
+        \item Build custom APIs and integration scripts, demonstrating full-stack development capabilities.
+    \end{itemize}
+}
+
+\jobentry{Technical Instructor}{Oct 2024 -- Sep 2025}
+{Neriko Electronics}{Kampala, Uganda}
+{
+    \begin{itemize}
+        \item Taught embedded systems programming using C/C++ and Arduino to students.
+        \item Developed curriculum and hands-on labs, demonstrating strong technical communication skills.
+        \item Instructed students in development tools: PlatformIO, TinkerCAD, Fritzing, Proteus, Eclipse, and NetBeans.
+    \end{itemize}
+}
+
+%--- PROJECTS ---
+\section*{PROJECTS}
+
+\projectentry{terminalphone -- Encrypted P2P Voice over Tor}{Bash, Tor Hidden Services, Opus, OpenSSL, FFmpeg}{
+    \begin{itemize}
+        \item Single self-contained script providing anonymous, end-to-end encrypted push-to-talk voice and text between parties over Tor hidden services -- no servers, accounts, or phone numbers; identities are \texttt{.onion} addresses.
+        \item Adapts Tor for real-time voice via record-then-send streaming, Opus tuned to 16kbps mono for Tor-sized payloads, and OpenSSL encryption with secrets passed via file descriptors; 122+ stars on GitHub.
+    \end{itemize}
+}{https://github.com/edengilbertus/terminalphone}
+
+\projectentry{Amber -- Android Reconstruction Pipeline}{Kotlin, DEX IR, SSA, JavaPoet, Gradle, Apache 2.0}{
+    \begin{itemize}
+        \item Lifts APK and DEX artifacts into typed IR, control-flow graphs, SSA form, and generated source, then synthesises a complete, buildable Android Studio project around the result.
+        \item Implements dex parsing, Java/Kotlin emission, Gradle synthesis, metadata analysis, and evidence-rich diagnostics -- turning reverse engineering into a structured, reproducible engineering workflow.
+        \item Supports Compose detection, metadata-aware Kotlin recovery, and full resource pipeline integration; validated end-to-end against real APKs via GitHub Actions CI.
+    \end{itemize}
+}{https://github.com/edengilbertus/amber}
+
+\projectentry{kore -- Portable Schr\"{o}dinger-Poisson Kernel}{Rust, PyO3, C ABI, NumPy, RustFFT, Rayon, pykore 0.2.1}{
+    \begin{itemize}
+        \item Portable Rust core for Schr\"{o}dinger-Poisson research workloads; single validated kernel surfaced as Rust crate, \texttt{pykore} Python bindings (PyPI 0.2.1), and stable C ABI with generated \texttt{include/kore.h}.
+        \item \texttt{pykore} NumPy-first API (Grid, Config, State, Kernel) with in-place \texttt{complex128} stepping via PyO3, GIL released on compute path; optional HDF5 checkpointing (checkpoint-hdf5) for resumable runs, versioned across surfaces.
+        \item Verified by Rust + Python integration tests, strict C11 smoke builds, header-drift checks, and packaging workflows; documented in \texttt{docs/index.md} and \texttt{paper.pdf}.
+    \end{itemize}
+}{https://github.com/edengilbertus/kore}
+
+\projectentry{Joist -- Architectural DSL \& Blueprint Compiler}{Rust, Domain-Specific Language, Vector Geometry}{
+    \begin{itemize}
+        \item Compiler that transforms declarative, AI-writable \texttt{.joist} architectural code into professional vector drawing sheets -- floor plans, elevations, sections, and multi-view master blueprint sets.
+        \item Pipeline of parser, geometry engine, and validator over shared 3D building geometry (towers, walls, openings, roofs), keeping semantic input and generated drawings consistent across all views.
+    \end{itemize}
+}{https://github.com/edengilbertus/Joist}
+
+\projectentry{KaCinema -- Netflix-Style Streaming Platform}{Spring Boot, Android, Jetpack Compose, REST APIs, Firebase}{
+    \begin{itemize}
+        \item Full-stack streaming platform with Spring Boot backend (auth, catalog, watchlist APIs) and native Android client using Jetpack Compose and MVVM with Repository pattern.
+        \item Implements adaptive media playback, caching with Room/DataStore, and REST integration via Retrofit/OkHttp with coroutines/Flow.
+        \item Deployed backend with CI/CD via GitHub Actions; demonstrates scalable cloud + mobile product delivery for content-driven apps.
+    \end{itemize}
+}{https://github.com/edengilbertus/KaCinema}
+
+\projectentry{local-lite -- On-Device LLM Inference on Android}{Kotlin, ExecuTorch, Qwen 3, Android NDK}{
+    \begin{itemize}
+        \item Android app running large language models fully on-device with ExecuTorch and Qwen 3 models -- no cloud calls, no data leaving the device.
+        \item Demonstrates mobile AI deployment end-to-end: model packaging, memory-conscious inference, and Kotlin integration over the ExecuTorch runtime.
+    \end{itemize}
+}{https://github.com/edengilbertus/local-lite-demo}
+
+\projectentry{Flare DAW -- Rust Audio Engine \& GPUI DAW Workspace}{Rust, GPUI, Audio DSP, Real-time Processing, GitHub Actions}{
+    \begin{itemize}
+        \item Custom DAW workspace built in Rust with GPUI, featuring a real-time audio engine with lock-free DSP chain (EQ, compressor, reverb) at 128-sample buffers (2.67 ms @48kHz).
+        \item Implements multitrack mixing with pan law, offline WAV export, and project persistence; architected for 60fps UI with $<$8ms recomposition.
+        \item Validated on Android/iOS toolchains for future mobile DAW port; demonstrates deep audio systems expertise directly relevant to AI-infused workstation work.
+    \end{itemize}
+}{https://github.com/edengilbertus/Flare-DAW}
+
+\projectentry{youber -- YouTube Live Archiver \& VOD Downloader}{Go, Real-Time Streaming, Muxing}{
+    \begin{itemize}
+        \item Fast, resilient archiver that captures YouTube live streams in real time (or downloads finished VODs) and produces a single muxed \texttt{.mkv} file -- no browser required.
+        \item Built for reliability under unstable network conditions, with resumable capture and clean CLI ergonomics.
+    \end{itemize}
+}{https://github.com/edengilbertus/youber}
+
+\projectentry{freevie -- Free Live TV for Stremio}{JavaScript, Stremio Addon SDK, IPTV}{
+    \begin{itemize}
+        \item Open-source Stremio addon streaming 500+ live USA, Canada, and Uganda TV channels, auto-updated hourly from the iptv-org catalogue.
+        \item Self-hostable and account-free, with in-addon channel search; deployed and used by real Stremio users.
+    \end{itemize}
+}{https://github.com/edengilbertus/freevie}
+
+\projectentry{Calenda -- Cross-Platform Calendar App}{Kotlin, Jetpack Compose, Room, Swift, SwiftUI, Core Data}{
+    \begin{itemize}
+        \item Calendar app built with Jetpack Compose and Room database persistence, then migrated natively to iOS as \href{https://github.com/edengilbertus/Calenda-iOS}{Calenda-iOS} using SwiftUI and Core Data.
+        \item Demonstrates platform-native craftsmanship on both sides rather than a lowest-common-denominator port.
+    \end{itemize}
+}{https://github.com/edengilbertus/calenda}
+
+\projectentry{HTML-TO-DESIGN -- Penpot HTML Conversion Plugin}{TypeScript, Svelte 5, Vite, Penpot Plugin API}{
+    \begin{itemize}
+        \item Plugin for the open-source design tool Penpot that parses live HTML DOM trees and rebuilds them as editable native Penpot shapes.
+        \item Sandbox-safe plugin architecture with typed UI$\leftrightarrow$plugin messaging and progressive conversion feedback; 8+ stars on GitHub.
+    \end{itemize}
+}{https://github.com/edengilbertus/HTML-TO-DESIGN}
+
+%--- SKILLS ---
+\section*{TECHNICAL SKILLS}
+
+\begin{minipage}[t]{0.48\textwidth}
+    \skillentry{Languages}{Kotlin, Swift, Java, Rust, Go, C/C++, Python, Zig}
+    \skillentry{Android}{Jetpack Compose, Navigation, Room, DataStore, WorkManager}
+    \skillentry{iOS}{SwiftUI, UIKit, Core Data}
+    \skillentry{Architecture}{MVVM, Clean Architecture, Repository Pattern}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+    \skillentry{Async \& DI}{Coroutines/Flow, RxJava, Combine -- Hilt, Dagger, Koin}
+    \skillentry{Backend \& Networking}{Spring Boot, Firebase, Supabase -- Retrofit, OkHttp, Alamofire, REST}
+    \skillentry{Cross-Platform \& On-Device AI}{KMP -- ExecuTorch, LiteRT (on-device LLM inference)}
+    \skillentry{Tooling \& CI/CD}{Android Studio, Xcode, VS Code -- Git/GitHub/GitLab, GitHub Actions, Fastlane}
+\end{minipage}
+
+\vspace{1em}
+
+%--- EDUCATION ---
+\section*{EDUCATION}
+
+\jobentry{Associate Degree in Electrical Engineering \& Computer Science}{2025 -- 2027}
+{University of the People}{United States}
+{}
+
+\vspace{-1em}
+
+\jobentry{Diploma in Electronics and Electrical Engineering}{2025 -- 2027}
+{Uganda Institute of ICT}{Uganda}
+{}
+
+%--- LANGUAGES ---
+\section*{LANGUAGES}
+
+\noindent
+\begin{minipage}[t]{0.32\textwidth}
+    \textbf{English} \hfill {\color{graytext} Fluent}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \textbf{Luganda} \hfill {\color{graytext} Fluent}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \textbf{French} \hfill {\color{graytext} Intermediate (B2)}
+\end{minipage}
+
+\end{document}
