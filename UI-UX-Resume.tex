@@ -1,0 +1,243 @@
+\documentclass[11pt,a4paper]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage[top=1.8cm, bottom=1.8cm, left=2cm, right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	COLORS & STYLES
+%----------------------------------------------------------------------------------------
+\definecolor{accentred}{HTML}{E03C31}
+\definecolor{darktext}{HTML}{1A1A1A}
+\definecolor{graytext}{HTML}{666666}
+
+\pagestyle{empty}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentred,
+    urlcolor=accentred,
+    pdftitle={Eden Gilbert Kiseka - UI/UX Resume},
+    pdfauthor={Eden Gilbert Kiseka}
+}
+
+% Section Styling
+\titleformat{\section}
+  {\vspace{1em}\large\bfseries\color{darktext}} % format
+  {} % label
+  {0em} % sep
+  {} % before
+  [\vspace{-0.4em}\rule{\textwidth}{0.4pt}] % after (line)
+
+% Itemize settings
+\setlist[itemize]{leftmargin=1.5em, nosep, topsep=0.2em, itemsep=0.2em}
+
+% Job Entry Command
+\newcommand{\jobentry}[5]{
+    \noindent
+    \begin{minipage}[t]{0.75\textwidth}
+        \textbf{\color{accentred} #1}
+    \end{minipage}%
+    \begin{minipage}[t]{0.25\textwidth}
+        \raggedleft
+        \color{graytext}\small #2
+    \end{minipage}\\[0.1em]
+    \noindent {\color{graytext} #3} \hfill {\color{graytext}\footnotesize #4} \\[0.3em]
+    \noindent \small #5
+    \vspace{1.2em}
+}
+
+% Project Entry Command
+\newcommand{\projectentry}[4]{
+    \noindent
+    \begin{minipage}[t]{0.75\textwidth}
+        \textbf{\color{accentred} #1}
+    \end{minipage}%
+    \begin{minipage}[t]{0.25\textwidth}
+        \raggedleft
+        \color{graytext}\small \href{#4}{View Repository}
+    \end{minipage}\\[0.1em]
+    \noindent {\color{graytext}\small #2} \\[0.3em]
+    \noindent \small #3
+    \vspace{1.2em}
+}
+
+\newcommand{\skillentry}[2]{
+    \noindent \textbf{#1} \hfill \color{graytext} #2 \\
+}
+
+\begin{document}
+
+%--- HEADER ---
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+    {\Huge \bfseries \color{darktext} Eden Gilbert Kiseka} \\[0.4em]
+    {\Large \bfseries \color{accentred} UI/UX Designer \& Creative Technologist}
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+    \raggedleft \small \color{darktext}
+    \faPhone \hspace{0.5em} +256 703 055 006 \\
+    \faEnvelope \hspace{0.5em} \href{mailto:edengilbertus@proton.me}{edengilbertus@proton.me} \\
+    \faGlobe \hspace{0.5em} \href{https://edengilbert.is-a.dev}{edengilbert.is-a.dev} \\
+    \faLinkedin \hspace{0.5em} \href{https://linkedin.com/in/edengilbert}{edengilbert} \\
+    \faGithub \hspace{0.5em} \href{https://github.com/edengilbertus}{edengilbertus} \\
+    \faMapMarker \hspace{0.5em} Kampala, Uganda
+\end{minipage}
+
+\vspace{1.5em}
+
+%--- EXPERIENCE ---
+\section*{EXPERIENCE}
+
+\jobentry{Product Designer \& Developer}{Nov 2025 -- Present}
+{Carthigan Inc.}{Kampala, Uganda}
+{
+    \begin{itemize}
+        \item Founded a venture to celebrate African languages; lead product development for Gandalingo, a Luganda learning app with 500+ users.
+        \item Conducted user research with 30+ learners, designed the UX/UI in Figma, and implemented the app in Kotlin/Jetpack Compose with WCAG 2.1 accessibility and a custom Material Design 3 system.
+    \end{itemize}
+}
+
+\jobentry{Backend Engineer}{Oct 2025 -- Present}
+{Googah Goats Limited}{Kampala, Uganda}
+{
+    \begin{itemize}
+        \item Architect backend infrastructure using Google AppScript and JavaScript.
+        \item Design data architecture with spreadsheet-based systems and custom automation scripts for operations and analytics.
+        \item Translate stakeholder needs into functional internal tools.
+    \end{itemize}
+}
+
+\jobentry{Designer \& Mobile Developer}{2023 -- 2024}
+{Freelance}{Remote}
+{
+    \begin{itemize}
+        \item Delivered end-to-end design and development for startups in fintech and hospitality.
+        \item Conducted discovery workshops, created design systems, and built production Android/React Native apps.
+        \item Facilitated design critiques and iterated on user feedback.
+    \end{itemize}
+}
+
+\jobentry{Technical Instructor}{Oct 2024 -- Sep 2025}
+{Neriko Electronics}{Kampala, Uganda}
+{
+    \begin{itemize}
+        \item Developed curriculum and taught embedded systems programming (C/C++) and IoT applications.
+        \item Created educational materials and circuit diagrams, refining ability to explain complex technical concepts to diverse audiences.
+    \end{itemize}
+}
+
+\jobentry{UI/UX Designer \& Developer}{Aug 2023 -- Dec 2023}
+{CoinPay}{Costa Rica}
+{
+    \begin{itemize}
+        \item Designed high-fidelity mockups and prototypes for a fintech platform in Figma.
+        \item Optimized payment flows to reduce friction; implemented designs in React Native and native Android with pixel-perfect accuracy.
+    \end{itemize}
+}
+
+\jobentry{Data Analyst}{2024 -- Dec 2024}
+{Hammer Uganda Limited}{Kampala, Uganda}
+{
+    \begin{itemize}
+        \item Analyzed RF signals for network expansion (Huawei/Lyca Mobile).
+        \item Developed Python scripts for data processing and visualization of signal strength patterns.
+    \end{itemize}
+}
+
+%--- PROJECTS ---
+\section*{PROJECTS}
+
+\projectentry{Gandalingo -- Luganda Language Learning Platform}{Kotlin, Jetpack Compose, Material Design 3, WCAG 2.1}{
+    \begin{itemize}
+        \item Production app with 500+ users; information architecture for 6 proficiency levels, 40+ custom components, and comprehensive accessibility features.
+        \item Smooth micro-interactions and a custom design system built from user research with 30+ Luganda learners.
+    \end{itemize}
+}{https://github.com/edengilbertus}
+
+\projectentry{Pizza Vesuvio -- Unified Restaurant Ordering Platform}{Kotlin, Swift, JavaScript, Android, iOS, Web}{
+    \begin{itemize}
+        \item Designed and developed a unified ordering experience across Android, iOS, and web with a warm visual aesthetic.
+        \item Photographed menu items, created platform-specific apps, and built a cohesive cross-platform brand identity.
+    \end{itemize}
+}{https://github.com/edengilbertus/Vesuvio-CPT-ordering-app}
+
+\projectentry{HTML-TO-DESIGN -- Penpot HTML Conversion Plugin}{TypeScript, Svelte 5, Vite, Penpot Plugin API}{
+    \begin{itemize}
+        \item Plugin for the open-source design tool Penpot that parses live HTML DOM trees and rebuilds them as editable native Penpot shapes.
+        \item Sandbox-safe plugin architecture with typed UI$\leftrightarrow$plugin messaging and progressive conversion feedback; 8+ stars on GitHub.
+    \end{itemize}
+}{https://github.com/edengilbertus/HTML-TO-DESIGN}
+
+%--- SKILLS ---
+\section*{SKILLS}
+
+\begin{minipage}[t]{0.32\textwidth}
+    \textbf{Design} \\[0.3em]
+    \small Product Design \\
+    User Research \\
+    Wireframing \& Prototyping \\
+    Design Systems \\
+    Figma \& OnCapture \\
+    Adobe Photoshop \\
+    WCAG 2.1 Accessibility
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \textbf{Development} \\[0.3em]
+    \small Kotlin (Android) \\
+    Swift (iOS) \\
+    React Native \\
+    Jetpack Compose \\
+    JavaScript / TypeScript \\
+    Python, C/C++ \\
+    Material Design 3
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \textbf{Creative} \\[0.3em]
+    \small Photography \\
+    Music Production \\
+    Screenwriting \\
+    Visual Storytelling \\
+    Brand Identity \\
+    \vspace{0.8em}
+    \textbf{Languages} \\[0.3em]
+    English (Fluent) \\
+    Luganda (Native) \\
+    French (Intermediate)
+\end{minipage}
+
+\vspace{1em}
+
+%--- EDUCATION ---
+\section*{EDUCATION}
+
+\jobentry{Associate Degree in Electrical Engineering \& Computer Science}{2025 -- 2027}
+{University of the People}{United States}
+{}
+
+\vspace{-1em}
+
+\jobentry{Diploma in Electronics and Electrical Engineering}{2025 -- 2027}
+{Uganda Institute of ICT}{Uganda}
+{}
+
+\vspace{-1em}
+
+\jobentry{Certificate of Higher Education in Physical Sciences}{2025}
+{Victoria University}{Uganda}
+{}
+
+\end{document}
